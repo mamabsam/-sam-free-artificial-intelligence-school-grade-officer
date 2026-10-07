@@ -3,128 +3,620 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>محمد سام ملک زاده</title>
+<meta name="theme-color" content="#0a0a15">
+<title>محمد سام ملک زاده — هوش مصنوعی سام</title>
 <style>
+/* ================================================================
+   PERFORMANCE OPTIMIZED — GPU ACCELERATED
+   ================================================================ */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden}
-.rgb-border{position:fixed;inset:0;z-index:9999;pointer-events:none;padding:3px;background:linear-gradient(90deg,#ff0000,#ff7f00,#ffff00,#00ff00,#00ffff,#0000ff,#8b00ff,#ff00ff,#ff0000);background-size:400% 400%;animation:rgbMove 4s linear infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;border-radius:2px;box-shadow:0 0 20px rgba(255,0,255,.3),inset 0 0 20px rgba(0,255,255,.2)}
-@keyframes rgbMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Google Sans',Tahoma,sans-serif;background:#000;color:#fff;display:flex;flex-direction:column;height:100vh;overflow:hidden;position:relative}
-.bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 15% 10%,rgba(66,133,244,.22) 0%,transparent 55%),radial-gradient(ellipse at 85% 15%,rgba(155,114,203,.22) 0%,transparent 55%),radial-gradient(ellipse at 50% 85%,rgba(217,101,112,.18) 0%,transparent 55%),radial-gradient(ellipse at 90% 90%,rgba(242,166,0,.15) 0%,transparent 55%),radial-gradient(ellipse at 10% 60%,rgba(0,217,200,.12) 0%,transparent 55%),radial-gradient(ellipse at 70% 45%,rgba(255,100,200,.1) 0%,transparent 55%),linear-gradient(to bottom,#000 0%,#050510 25%,#0a1a2e 55%,#0e2545 85%,#12305a 100%)}
-.bg-stars{position:fixed;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(2px 2px at 10% 20%,rgba(255,255,255,.95),transparent),radial-gradient(1px 1px at 30% 60%,rgba(168,199,250,.85),transparent),radial-gradient(1.5px 1.5px at 70% 30%,rgba(255,215,0,.8),transparent),radial-gradient(1px 1px at 90% 70%,rgba(217,101,112,.85),transparent),radial-gradient(1.5px 1.5px at 45% 85%,rgba(155,114,203,.8),transparent),radial-gradient(1px 1px at 60% 15%,rgba(255,255,255,.7),transparent),radial-gradient(2px 2px at 25% 45%,rgba(66,133,244,.75),transparent),radial-gradient(1px 1px at 15% 75%,rgba(0,217,200,.7),transparent);background-size:100% 100%;animation:twinkle 5s infinite}
-@keyframes twinkle{0%,100%{opacity:.65}50%{opacity:1}}
-.header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;flex-shrink:0;z-index:10;position:relative;backdrop-filter:blur(24px);background:linear-gradient(180deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.25) 100%);border-bottom:1px solid rgba(255,255,255,.05)}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+
+/* ================================================================
+   RGB GAMING BORDER — OPTIMIZED
+   ================================================================ */
+.rgb-border{
+  position:fixed;inset:0;z-index:9999;pointer-events:none;
+  padding:3px;
+  background:linear-gradient(90deg,#ff0000,#ff7f00,#ffff00,#00ff00,#00ffff,#0000ff,#8b00ff,#ff00ff,#ff0000);
+  background-size:400% 400%;
+  animation:rgbMove 4s linear infinite;
+  will-change:background-position;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  border-radius:2px;
+}
+@keyframes rgbMove{
+  0%{background-position:0% 50%}
+  100%{background-position:200% 50%}
+}
+
+/* ================================================================
+   BODY
+   ================================================================ */
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Google Sans',Tahoma,sans-serif;
+  background:#000;color:#fff;
+  display:flex;flex-direction:column;
+  height:100vh;overflow:hidden;
+  position:relative;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ================================================================
+   BACKGROUND — SINGLE LAYER FOR PERFORMANCE
+   ================================================================ */
+.bg-static{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(66,133,244,.18) 0%, transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(155,114,203,.18) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(217,101,112,.15) 0%, transparent 50%),
+    radial-gradient(circle at 85% 90%, rgba(242,166,0,.12) 0%, transparent 45%),
+    linear-gradient(180deg, #000 0%, #050510 40%, #0a1a2e 70%, #0e2545 100%);
+}
+
+/* ذرات — کاهش یافته و GPU accelerated */
+.particles{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  overflow:hidden;contain:strict;
+}
+.particle{
+  position:absolute;border-radius:50%;
+  animation:floatUp linear infinite;
+  will-change:transform,opacity;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+@keyframes floatUp{
+  0%{transform:translate3d(0,100vh,0) scale(0);opacity:0}
+  8%{opacity:.9}
+  92%{opacity:.9}
+  100%{transform:translate3d(0,-80px,0) scale(1.5);opacity:0}
+}
+
+/* ================================================================
+   HEADER — GLASS MORPHISM
+   ================================================================ */
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;flex-shrink:0;z-index:10;position:relative;
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  background:linear-gradient(180deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.35) 100%);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
 .header-left{display:flex;align-items:center;gap:8px}
 .header-right{display:flex;align-items:center;gap:8px}
-.menu-icon,.compose-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:50%;position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#e3e3e3;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
-.menu-icon:hover,.compose-icon:hover{background:rgba(255,255,255,.14);border-color:rgba(66,133,244,.6);box-shadow:0 0 24px rgba(66,133,244,.5);transform:translateY(-2px) scale(1.05)}
-.menu-icon::before{content:'';position:absolute;top:6px;right:8px;width:7px;height:7px;border-radius:50%;background:#4285f4;box-shadow:0 0 10px #4285f4,0 0 20px #4285f4;animation:pulseDot 2s infinite}
-@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+
+.menu-icon,.compose-icon{
+  width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;border-radius:50%;position:relative;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  color:#e3e3e3;transition:background .25s,transform .25s;
+  will-change:transform;
+}
+.menu-icon:hover,.compose-icon:hover{
+  background:rgba(255,255,255,.14);
+  border-color:rgba(66,133,244,.5);
+  transform:scale(1.05);
+}
+.menu-icon::before{
+  content:'';position:absolute;top:6px;right:8px;width:7px;height:7px;
+  border-radius:50%;background:#4285f4;
+  box-shadow:0 0 10px #4285f4;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .menu-icon svg,.compose-icon svg{width:20px;height:20px}
-.name-badge{display:flex;align-items:center;gap:10px;padding:8px 16px;border-radius:26px;background:linear-gradient(135deg,rgba(66,133,244,.15),rgba(155,114,203,.15),rgba(217,101,112,.15));border:1px solid rgba(255,255,255,.1);position:relative;overflow:hidden;cursor:pointer}
-.name-badge::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);animation:shine 4s infinite}
-@keyframes shine{0%{transform:translateX(-100%)}50%,100%{transform:translateX(100%)}}
-.name-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570,#f2a600);background-size:300% 300%;box-shadow:0 0 14px rgba(66,133,244,.8);animation:gradShift 3s infinite;flex-shrink:0}
+
+.name-badge{
+  display:flex;align-items:center;gap:10px;padding:8px 16px;
+  border-radius:26px;
+  background:linear-gradient(135deg,rgba(66,133,244,.15),rgba(155,114,203,.15),rgba(217,101,112,.15));
+  border:1px solid rgba(255,255,255,.1);
+  position:relative;overflow:hidden;cursor:pointer;
+}
+.name-badge::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+  transform:translateX(-100%);
+  animation:shine 5s infinite;
+}
+@keyframes shine{
+  0%,50%{transform:translateX(-100%)}
+  100%{transform:translateX(100%)}
+}
+.name-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570,#f2a600);
+  background-size:200% 200%;
+  box-shadow:0 0 14px rgba(66,133,244,.8);
+  animation:gradShift 4s infinite;
+  flex-shrink:0;
+}
 @keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.name-text{font-size:1rem;font-weight:600;background:linear-gradient(90deg,#fff 0%,#a8c7fa 50%,#fff 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;white-space:nowrap}
-@keyframes shimmer{to{background-position:200% center}}
-.header-title{font-size:.78rem;color:#9aa0a6;font-weight:500;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;padding:6px 16px;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(66,133,244,.04));border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(10px)}
+.name-text{
+  font-size:1rem;font-weight:600;
+  background:linear-gradient(90deg,#fff 0%,#a8c7fa 50%,#fff 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:shimmerText 5s linear infinite;
+  white-space:nowrap;
+}
+@keyframes shimmerText{to{background-position:200% center}}
+
+.header-title{
+  font-size:.78rem;color:#9aa0a6;font-weight:500;
+  position:absolute;left:50%;transform:translateX(-50%);
+  white-space:nowrap;padding:6px 16px;border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+}
 @media(max-width:600px){.header-title{display:none}}
-.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570,#f2a600);background-size:250% 250%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;cursor:pointer;border:2px solid rgba(255,255,255,.2);box-shadow:0 0 28px rgba(155,114,203,.6);animation:gradShift 5s infinite}
-.center-content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;z-index:5;text-align:center;position:relative}
+
+.avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570,#f2a600);
+  background-size:200% 200%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:800;color:#fff;cursor:pointer;
+  border:2px solid rgba(255,255,255,.2);
+  box-shadow:0 0 20px rgba(155,114,203,.5);
+  animation:gradShift 5s infinite;
+}
+
+/* ================================================================
+   NAV TABS
+   ================================================================ */
+.nav-tabs{
+  display:flex;gap:8px;padding:12px 16px;z-index:10;position:relative;
+  max-width:900px;margin:0 auto;width:100%;
+  flex-wrap:wrap;justify-content:center;
+  flex-shrink:0;
+}
+.nav-tab{
+  padding:10px 18px;border-radius:22px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.04);color:#9aa0a6;
+  font-size:.82rem;font-family:inherit;font-weight:600;cursor:pointer;
+  transition:background .25s,color .25s,border-color .25s;
+}
+.nav-tab:hover{background:rgba(66,133,244,.15);color:#e3e3e3}
+.nav-tab.active{
+  background:linear-gradient(135deg,rgba(66,133,244,.25),rgba(155,114,203,.25));
+  border-color:rgba(66,133,244,.5);color:#fff;
+}
+
+/* ================================================================
+   CENTER — WELCOME SCREEN
+   ================================================================ */
+.center-content{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:20px;z-index:5;text-align:center;position:relative;
+}
 .center-content.hidden{display:none}
-.orbit-container{width:180px;height:180px;margin-bottom:24px;position:relative;display:flex;align-items:center;justify-content:center}
-.orbit{position:absolute;border-radius:50%;border:2px solid transparent;animation:orbitSpin 8s linear infinite}
-.orbit.o1{width:100%;height:100%;border-top-color:#4285f4;border-right-color:#9b72cb;animation-duration:8s;box-shadow:0 0 40px rgba(66,133,244,.4)}
-.orbit.o2{width:75%;height:75%;border-top-color:#d96570;border-left-color:#f2a600;animation-duration:6s;animation-direction:reverse;box-shadow:0 0 35px rgba(217,101,112,.4)}
-.orbit.o3{width:50%;height:50%;border-top-color:#00d9c0;border-right-color:#a8c7fa;animation-duration:4s;box-shadow:0 0 30px rgba(0,217,200,.4)}
-@keyframes orbitSpin{to{transform:rotate(360deg)}}
-.orbit-core{width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#a8c7fa 40%,#4285f4 70%,#9b72cb 100%);box-shadow:0 0 40px rgba(168,199,250,.8),0 0 80px rgba(66,133,244,.5);animation:corePulse 2s infinite}
-@keyframes corePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-.welcome-text{font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-.5px;background:linear-gradient(90deg,#4285f4 0%,#9b72cb 20%,#d96570 40%,#f2a600 60%,#00d9c0 80%,#4285f4 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerLong 6s linear infinite;margin-bottom:8px}
+
+.orbit-container{
+  width:170px;height:170px;margin-bottom:28px;
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.orbit{
+  position:absolute;border-radius:50%;
+  border:2px solid transparent;
+  animation:spin linear infinite;
+  will-change:transform;
+  transform:translateZ(0);
+}
+.orbit.o1{
+  width:100%;height:100%;
+  border-top-color:#4285f4;border-right-color:#9b72cb;
+  animation-duration:9s;
+}
+.orbit.o2{
+  width:72%;height:72%;
+  border-top-color:#d96570;border-left-color:#f2a600;
+  animation-duration:7s;animation-direction:reverse;
+}
+.orbit.o3{
+  width:45%;height:45%;
+  border-top-color:#00d9c0;border-right-color:#a8c7fa;
+  animation-duration:5s;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.orbit-core{
+  width:56px;height:56px;border-radius:50%;
+  background:radial-gradient(circle,#fff 0%,#a8c7fa 45%,#4285f4 75%,#9b72cb 100%);
+  box-shadow:
+    0 0 30px rgba(168,199,250,.8),
+    0 0 60px rgba(66,133,244,.5);
+  animation:corePulse 2.5s ease-in-out infinite;
+  will-change:transform;
+}
+@keyframes corePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+
+.welcome-text{
+  font-size:2.2rem;font-weight:700;line-height:1.3;
+  letter-spacing:-.5px;
+  background:linear-gradient(90deg,#4285f4 0%,#9b72cb 25%,#d96570 50%,#f2a600 75%,#4285f4 100%);
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:shimmerLong 7s linear infinite;
+  margin-bottom:8px;
+}
 @keyframes shimmerLong{to{background-position:300% center}}
-.welcome-name{font-size:1.8rem;font-weight:800;line-height:1.3;letter-spacing:-.5px;margin-bottom:18px;background:linear-gradient(135deg,#a8c7fa 0%,#fff 50%,#a8c7fa 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite}
-.welcome-sub{font-size:.95rem;color:#9aa0a6;padding:8px 20px;border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(66,133,244,.06));border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px}
-.welcome-sub::before{content:'✨';font-size:.9rem;animation:sparkle 2s infinite}
-@keyframes sparkle{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
-.quick-actions{display:flex;gap:12px;margin-top:44px;flex-wrap:wrap;justify-content:center;max-width:640px}
-.quick-btn{padding:12px 22px;border-radius:28px;background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);color:#e3e3e3;font-size:.86rem;font-family:inherit;font-weight:500;cursor:pointer;transition:all .35s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:9px}
-.quick-btn:hover{background:linear-gradient(135deg,rgba(66,133,244,.18),rgba(155,114,203,.18));border-color:rgba(66,133,244,.6);box-shadow:0 0 28px rgba(66,133,244,.5);transform:translateY(-4px) scale(1.03);color:#fff}
+
+.welcome-name{
+  font-size:1.6rem;font-weight:800;line-height:1.3;
+  letter-spacing:-.5px;margin-bottom:18px;
+  background:linear-gradient(135deg,#a8c7fa 0%,#fff 50%,#a8c7fa 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:shimmerText 4s linear infinite;
+}
+
+.welcome-sub{
+  font-size:.92rem;color:#9aa0a6;
+  padding:8px 20px;border-radius:22px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;gap:8px;
+}
+.welcome-sub::before{content:'✨';font-size:.9rem;animation:sparkle 2.5s infinite}
+@keyframes sparkle{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+
+/* ================================================================
+   QUICK ACTIONS
+   ================================================================ */
+.quick-actions{
+  display:flex;gap:12px;margin-top:40px;
+  flex-wrap:wrap;justify-content:center;max-width:640px;
+}
+.quick-btn{
+  padding:12px 22px;border-radius:28px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  color:#e3e3e3;font-size:.86rem;font-family:inherit;font-weight:500;
+  cursor:pointer;
+  transition:transform .25s,background .25s,border-color .25s;
+  display:flex;align-items:center;gap:9px;
+  will-change:transform;
+}
+.quick-btn:hover{
+  background:rgba(66,133,244,.18);
+  border-color:rgba(66,133,244,.5);
+  transform:translateY(-3px);
+  color:#fff;
+}
 .quick-btn svg{width:18px;height:18px}
-.chat-area{flex:1;overflow-y:auto;padding:20px 16px 180px;display:none;scroll-behavior:smooth;z-index:5;position:relative}
+
+/* ================================================================
+   SCHEDULE PANEL
+   ================================================================ */
+.schedule-panel{
+  display:none;padding:16px;z-index:5;position:relative;
+  max-width:900px;margin:0 auto;width:100%;
+  overflow-y:auto;flex:1;
+}
+.schedule-panel.active{display:block}
+
+.schedule-table{
+  width:100%;border-collapse:collapse;
+  background:rgba(20,22,28,.85);
+  backdrop-filter:blur(10px);
+  border-radius:16px;overflow:hidden;
+  border:1px solid rgba(66,133,244,.25);
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+.schedule-table th{
+  background:linear-gradient(135deg,#4285f4,#9b72cb);
+  padding:14px 8px;font-size:.85rem;font-weight:700;color:#fff;
+  text-align:center;border:1px solid rgba(255,255,255,.1);
+}
+.schedule-table td{
+  padding:12px 8px;text-align:center;font-size:.82rem;
+  color:#e3e3e3;border:1px solid rgba(255,255,255,.06);
+  vertical-align:middle;line-height:1.5;
+}
+.schedule-table td.period{
+  background:linear-gradient(135deg,rgba(66,133,244,.2),rgba(155,114,203,.2));
+  font-weight:700;font-size:.8rem;color:#a8c7fa;
+}
+.schedule-table .teacher{font-size:.72rem;color:#9aa0a6;display:block;margin-top:3px}
+
+/* ================================================================
+   REMINDER PANEL
+   ================================================================ */
+.reminder-panel{
+  display:none;padding:16px;z-index:5;position:relative;
+  max-width:900px;margin:0 auto;width:100%;
+  overflow-y:auto;flex:1;
+}
+.reminder-panel.active{display:block}
+
+.reminder-card{
+  background:rgba(20,22,28,.85);
+  backdrop-filter:blur(10px);
+  border-radius:16px;padding:20px;
+  border:1px solid rgba(66,133,244,.25);
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+  margin-bottom:16px;
+}
+.reminder-title{
+  font-size:1rem;font-weight:700;margin-bottom:12px;
+  background:linear-gradient(90deg,#4285f4,#9b72cb,#d96570);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.reminder-text{font-size:.9rem;color:#e3e3e3;line-height:2.1}
+.reminder-hl{color:#f2a600;font-weight:700}
+
+/* ================================================================
+   CHAT AREA
+   ================================================================ */
+.chat-area{
+  flex:1;overflow-y:auto;padding:16px 16px 180px;
+  display:none;scroll-behavior:smooth;z-index:5;position:relative;
+  overscroll-behavior:contain;
+}
 .chat-area.active{display:block}
 .chat-area::-webkit-scrollbar{width:6px}
-.chat-area::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#4285f4,#9b72cb);border-radius:6px}
-.message{display:flex;gap:12px;margin-bottom:24px;animation:msgIn .5s cubic-bezier(.34,1.56,.64,1);max-width:100%}
-@keyframes msgIn{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.chat-area::-webkit-scrollbar-thumb{background:rgba(66,133,244,.4);border-radius:6px}
+
+.message{
+  display:flex;gap:12px;margin-bottom:22px;
+  animation:msgIn .35s ease-out;max-width:100%;
+  will-change:transform,opacity;
+}
+@keyframes msgIn{
+  from{opacity:0;transform:translate3d(0,15px,0)}
+  to{opacity:1;transform:translate3d(0,0,0)}
+}
 .message.user{flex-direction:row-reverse}
-.message-avatar{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;position:relative}
-.message-avatar.ai{background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570);background-size:200% 200%;color:#fff;box-shadow:0 0 24px rgba(66,133,244,.7);animation:gradShift 5s infinite}
-.message-avatar.user-av{background:linear-gradient(135deg,#d96570,#f2a600);color:#fff;box-shadow:0 0 24px rgba(217,101,112,.7)}
+
+.message-avatar{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;position:relative;
+}
+.message-avatar.ai{
+  background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570);
+  background-size:200% 200%;color:#fff;
+  box-shadow:0 0 20px rgba(66,133,244,.6);
+  animation:gradShift 6s infinite;
+}
+.message-avatar.user-av{
+  background:linear-gradient(135deg,#d96570,#f2a600);
+  color:#fff;box-shadow:0 0 20px rgba(217,101,112,.6);
+}
+
 .message-content{flex:1;max-width:85%}
 .message.user .message-content{display:flex;flex-direction:column;align-items:flex-end}
-.message-bubble{background:rgba(30,31,32,.9);border-radius:22px;padding:15px 19px;font-size:.94rem;line-height:1.85;color:#e3e3e3;word-wrap:break-word;white-space:pre-wrap;border:1px solid rgba(255,255,255,.07);box-shadow:0 8px 28px rgba(0,0,0,.4)}
-.message.user .message-bubble{background:linear-gradient(135deg,#0b57d0 0%,#1a73e8 50%,#4285f4 100%);color:#fff;border-bottom-right-radius:6px;border:none}
-.message.ai .message-bubble{border-bottom-left-radius:6px;position:relative;overflow:hidden}
-.message.ai .message-bubble::before{content:'';position:absolute;top:14px;bottom:14px;right:0;width:3px;background:linear-gradient(180deg,#4285f4,#9b72cb,#d96570,#f2a600);border-radius:3px}
-.message-bubble img,.message-bubble video{max-width:100%;border-radius:16px;margin-top:14px;display:block}
-.message-bubble audio{width:100%;margin-top:14px;border-radius:12px}
-.message-bubble pre{background:#0a0a0a;padding:15px 17px;border-radius:13px;margin:12px 0;overflow-x:auto;direction:ltr;text-align:left;font-family:monospace;font-size:.82rem;line-height:1.65;border:1px solid rgba(66,133,244,.3)}
-.message-bubble code{background:rgba(66,133,244,.2);padding:3px 8px;border-radius:6px;font-family:monospace;font-size:.85em;direction:ltr;display:inline-block;color:#a8c7fa}
-.service-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:12px;font-size:.72rem;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,rgba(66,133,244,.2),rgba(155,114,203,.2));border:1px solid rgba(66,133,244,.3);color:#a8c7fa}
+
+.message-bubble{
+  background:rgba(28,30,35,.92);
+  backdrop-filter:blur(12px);
+  border-radius:20px;padding:14px 18px;
+  font-size:.94rem;line-height:1.85;color:#e3e3e3;
+  word-wrap:break-word;
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:0 6px 24px rgba(0,0,0,.4);
+}
+.message.user .message-bubble{
+  background:linear-gradient(135deg,#0b57d0 0%,#1a73e8 60%,#4285f4 100%);
+  color:#fff;border-bottom-right-radius:5px;border:none;
+}
+.message.ai .message-bubble{
+  border-bottom-left-radius:5px;position:relative;overflow:hidden;
+}
+.message.ai .message-bubble::before{
+  content:'';position:absolute;top:14px;bottom:14px;right:0;width:3px;
+  background:linear-gradient(180deg,#4285f4,#9b72cb,#d96570,#f2a600);
+  border-radius:3px;
+}
+.message-bubble img{
+  max-width:100%;border-radius:14px;margin-top:14px;display:block;
+  box-shadow:0 8px 30px rgba(0,0,0,.5);
+}
+.message-bubble pre{
+  background:#0a0a0a;padding:14px 16px;border-radius:12px;
+  margin:12px 0;overflow-x:auto;direction:ltr;text-align:left;
+  font-family:'SF Mono',Monaco,monospace;font-size:.82rem;line-height:1.6;
+  border:1px solid rgba(66,133,244,.25);
+}
+.message-bubble code{
+  background:rgba(66,133,244,.18);padding:3px 8px;border-radius:6px;
+  font-family:'SF Mono',Monaco,monospace;font-size:.85em;direction:ltr;
+  display:inline-block;color:#a8c7fa;
+}
+
+.service-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:12px;
+  font-size:.72rem;font-weight:700;margin-bottom:8px;
+  background:linear-gradient(135deg,rgba(66,133,244,.2),rgba(155,114,203,.2));
+  border:1px solid rgba(66,133,244,.3);color:#a8c7fa;
+}
+
 .status-list{margin-top:10px;padding:0;list-style:none}
-.status-item{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.8rem;color:#9aa0a6}
+.status-item{
+  display:flex;align-items:center;gap:8px;
+  padding:5px 0;font-size:.78rem;color:#9aa0a6;
+}
 .status-item .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .status-item .dot.pending{background:#ffc107}
 .status-item .dot.success{background:#00d97e}
 .status-item .dot.fail{background:#ff6b6b}
-.message-actions{display:flex;gap:5px;margin-top:8px;padding:0 4px;opacity:0;transition:opacity .3s}
+
+.message-actions{
+  display:flex;gap:5px;margin-top:8px;padding:0 4px;
+  opacity:0;transition:opacity .25s;
+}
 .message:hover .message-actions{opacity:1}
-.action-btn{width:34px;height:34px;border-radius:11px;border:none;background:rgba(255,255,255,.05);color:#888;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;border:1px solid rgba(255,255,255,.05)}
-.action-btn:hover{background:rgba(66,133,244,.25);color:#a8c7fa;transform:translateY(-2px) scale(1.08)}
+@media(hover:none){.message-actions{opacity:.6}}
+.action-btn{
+  width:34px;height:34px;border-radius:11px;border:none;
+  background:rgba(255,255,255,.05);color:#888;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,color .2s,transform .2s;
+  border:1px solid rgba(255,255,255,.05);
+}
+.action-btn:hover{background:rgba(66,133,244,.25);color:#a8c7fa;transform:scale(1.08)}
 .action-btn.done{color:#00d97e;background:rgba(0,217,126,.15)}
 .action-btn svg{width:16px;height:16px}
-.typing-indicator{display:flex;gap:7px;padding:8px 0}
-.typing-dot{width:10px;height:10px;border-radius:50%;animation:typingBounce 1.4s infinite ease-in-out}
+
+/* ================================================================
+   TYPING INDICATOR
+   ================================================================ */
+.typing-indicator{display:flex;gap:6px;padding:6px 0}
+.typing-dot{
+  width:9px;height:9px;border-radius:50%;
+  animation:typingBounce 1.3s infinite ease-in-out;
+}
 .typing-dot:nth-child(1){background:#4285f4}
 .typing-dot:nth-child(2){animation-delay:.15s;background:#9b72cb}
 .typing-dot:nth-child(3){animation-delay:.3s;background:#f2a600}
-@keyframes typingBounce{0%,60%,100%{transform:translateY(0) scale(1);opacity:.5}30%{transform:translateY(-10px) scale(1.25);opacity:1}}
-.input-bar-container{position:fixed;bottom:0;left:0;right:0;padding:14px 16px 24px;background:linear-gradient(to top,rgba(14,37,69,.98) 0%,rgba(10,26,46,.9) 55%,transparent 100%);z-index:50}
-.input-bar{display:flex;align-items:center;background:rgba(30,31,32,.94);border-radius:32px;padding:9px 11px;gap:8px;min-height:62px;box-shadow:0 10px 50px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);max-width:900px;margin:0 auto;transition:all .35s}
-.input-bar:focus-within{border-color:rgba(66,133,244,.65);box-shadow:0 10px 50px rgba(0,0,0,.65),0 0 50px rgba(66,133,244,.45)}
-.icon-btn{width:46px;height:46px;border-radius:50%;border:none;background:transparent;color:#e3e3e3;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-family:inherit}
+@keyframes typingBounce{
+  0%,60%,100%{transform:translateY(0);opacity:.5}
+  30%{transform:translateY(-8px);opacity:1}
+}
+
+/* ================================================================
+   INPUT BAR
+   ================================================================ */
+.input-bar-container{
+  position:fixed;bottom:0;left:0;right:0;
+  padding:12px 16px 22px;
+  background:linear-gradient(to top,rgba(10,26,46,.98) 0%,rgba(7,18,35,.9) 60%,transparent 100%);
+  z-index:50;
+}
+.input-bar{
+  display:flex;align-items:center;
+  background:rgba(28,30,35,.95);
+  backdrop-filter:blur(20px);
+  border-radius:30px;padding:8px 10px;gap:8px;
+  min-height:60px;
+  box-shadow:0 8px 40px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.06);
+  max-width:900px;margin:0 auto;
+  transition:border-color .3s,box-shadow .3s;
+}
+.input-bar:focus-within{
+  border-color:rgba(66,133,244,.55);
+  box-shadow:0 8px 40px rgba(0,0,0,.6),0 0 30px rgba(66,133,244,.35);
+}
+.icon-btn{
+  width:44px;height:44px;border-radius:50%;border:none;
+  background:transparent;color:#e3e3e3;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:background .25s,color .25s;
+  font-family:inherit;
+}
 .icon-btn:hover{background:rgba(66,133,244,.2);color:#a8c7fa}
-.icon-btn svg{width:21px;height:21px}
-.chat-input{flex:1;background:transparent;border:none;color:#e3e3e3;font-size:.97rem;font-family:inherit;outline:none;padding:10px 8px;min-width:0;direction:rtl}
+.icon-btn svg{width:20px;height:20px}
+.chat-input{
+  flex:1;background:transparent;border:none;color:#e3e3e3;
+  font-size:.96rem;font-family:inherit;outline:none;
+  padding:10px 8px;min-width:0;direction:rtl;
+}
 .chat-input::placeholder{color:#8e918f}
-.send-btn{width:48px;height:48px;border-radius:50%;border:none;background:#2b2d2f;color:#5f6368;cursor:not-allowed;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .35s;font-family:inherit}
-.send-btn.active{background:linear-gradient(135deg,#4285f4,#1a73e8,#9b72cb,#d96570);color:#fff;cursor:pointer;box-shadow:0 8px 32px rgba(66,133,244,.7)}
+.send-btn{
+  width:46px;height:46px;border-radius:50%;border:none;
+  background:#2b2d2f;color:#5f6368;cursor:not-allowed;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:background .3s,color .3s,transform .3s;
+  font-family:inherit;
+}
+.send-btn.active{
+  background:linear-gradient(135deg,#4285f4,#1a73e8,#9b72cb,#d96570);
+  color:#fff;cursor:pointer;
+  box-shadow:0 6px 24px rgba(66,133,244,.6);
+}
+.send-btn.active:hover{transform:scale(1.08)}
 .send-btn svg{width:22px;height:22px}
-.icon-btn.recording{background:linear-gradient(135deg,#ff4444,#cc0044);color:#fff}
-.file-preview{position:fixed;bottom:110px;right:16px;background:rgba(43,45,47,.97);border-radius:18px;padding:11px;display:none;align-items:center;gap:11px;max-width:310px;z-index:60;border:1px solid rgba(66,133,244,.4)}
+
+/* ================================================================
+   FILE PREVIEW
+   ================================================================ */
+.file-preview{
+  position:fixed;bottom:100px;right:16px;
+  background:rgba(28,30,35,.97);
+  backdrop-filter:blur(14px);
+  border-radius:16px;padding:10px;
+  display:none;align-items:center;gap:10px;
+  max-width:300px;z-index:60;
+  border:1px solid rgba(66,133,244,.4);
+  box-shadow:0 10px 40px rgba(0,0,0,.6);
+}
 .file-preview.show{display:flex}
-.file-preview img{width:52px;height:52px;border-radius:12px;object-fit:cover}
-.file-info{flex:1;min-width:0;font-size:.79rem;color:#e3e3e3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.remove-file{background:rgba(255,80,80,.15);border:none;color:#ff6b6b;cursor:pointer;font-size:1.4rem;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center}
-.toast{position:fixed;bottom:130px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(43,45,47,.98);color:#e3e3e3;padding:14px 28px;border-radius:28px;font-size:.87rem;opacity:0;transition:all .4s;pointer-events:none;z-index:300;max-width:90%;text-align:center;border:1px solid rgba(66,133,244,.4)}
+.file-preview img{width:50px;height:50px;border-radius:10px;object-fit:cover}
+.file-info{flex:1;min-width:0;font-size:.78rem;color:#e3e3e3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.remove-file{
+  background:rgba(255,80,80,.15);border:none;color:#ff6b6b;cursor:pointer;
+  font-size:1.3rem;width:30px;height:30px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ================================================================
+   TOAST
+   ================================================================ */
+.toast{
+  position:fixed;bottom:120px;left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:rgba(28,30,35,.97);
+  backdrop-filter:blur(14px);
+  color:#e3e3e3;padding:12px 24px;border-radius:24px;
+  font-size:.85rem;font-weight:500;
+  opacity:0;transition:opacity .3s,transform .3s;
+  pointer-events:none;z-index:300;
+  max-width:90%;text-align:center;
+  border:1px solid rgba(66,133,244,.35);
+  box-shadow:0 10px 40px rgba(0,0,0,.6);
+}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.particles{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
-.particle{position:absolute;border-radius:50%;animation:float-up linear infinite}
-@keyframes float-up{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100px) scale(1.8);opacity:0}}
-@media(max-width:500px){.welcome-text{font-size:1.7rem}.welcome-name{font-size:1.3rem}.orbit-container{width:140px;height:140px}.orbit-core{width:48px;height:48px}.message-bubble{font-size:.88rem}.message-content{max-width:88%}.quick-btn{padding:10px 16px;font-size:.78rem}}
+
+/* ================================================================
+   MOBILE
+   ================================================================ */
+@media(max-width:500px){
+  .welcome-text{font-size:1.6rem}
+  .welcome-name{font-size:1.2rem}
+  .orbit-container{width:140px;height:140px}
+  .orbit-core{width:48px;height:48px}
+  .message-bubble{font-size:.88rem}
+  .message-content{max-width:88%}
+  .quick-btn{padding:10px 16px;font-size:.78rem}
+  .schedule-table th,.schedule-table td{padding:8px 4px;font-size:.72rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}
 </style>
 </head>
 <body>
 
 <div class="rgb-border"></div>
-<div class="bg-canvas"></div>
-<div class="bg-stars"></div>
+<div class="bg-static"></div>
 <div class="particles" id="particles"></div>
 
 <header class="header">
   <div class="header-left">
-    <button class="menu-icon" onclick="newChat()">
+    <button class="menu-icon" onclick="newChat()" title="گفتگوی جدید">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="3" y1="6" x2="21" y2="6"/>
         <line x1="3" y1="12" x2="21" y2="12"/>
@@ -138,7 +630,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Google Sans
   </div>
   <div class="header-title">مدیریت و مسئولیت: ملک زاده</div>
   <div class="header-right">
-    <button class="compose-icon" onclick="newChat()">
+    <button class="compose-icon" onclick="newChat()" title="گفتگوی جدید">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 20h9"/>
         <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
@@ -148,6 +640,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Google Sans
   </div>
 </header>
 
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showTab('chat', this)">💬 چت هوشمند</button>
+  <button class="nav-tab" onclick="showTab('schedule', this)">📅 برنامه کلاسی</button>
+  <button class="nav-tab" onclick="showTab('reminder', this)">🔔 یادآور</button>
+</div>
+
 <div class="center-content" id="centerContent">
   <div class="orbit-container">
     <div class="orbit o1"></div>
@@ -156,29 +654,81 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Google Sans
     <div class="orbit-core"></div>
   </div>
   <div class="welcome-text">سلام 👋</div>
-  <div class="welcome-name">من محمد سام ملک زاده هستم</div>
-  <div class="welcome-sub">مدیریت و مسئولیت: ملک زاده</div>
+  <div class="welcome-name">من هوش مصنوعی سام هستم</div>
+  <div class="welcome-sub">مدیریت: محمد سام ملک زاده</div>
   <div class="quick-actions">
-    <button class="quick-btn" onclick="quickSend('یک عکس زیبا از کوهستان با نور نئون بساز')">
+    <button class="quick-btn" onclick="quickSend('فردا چه درسی داریم؟')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>📅 درس فردا</span>
+    </button>
+    <button class="quick-btn" onclick="quickSend('زنگ چندم باید بیدار شوم؟')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><polyline points="12 9 12 13 15 15"/></svg>
+      <span>⏰ بیدارباش</span>
+    </button>
+    <button class="quick-btn" onclick="quickSend('برنامه کلاسی هفته را بگو')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+      <span>📋 برنامه هفته</span>
+    </button>
+    <button class="quick-btn" onclick="quickSend('یک عکس زیبا از کوهستان بساز')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
       <span>🎨 عکس</span>
-    </button>
-    <button class="quick-btn" onclick="quickSend('یک آهنگ شاد درباره دوستی بساز')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-      <span>🎵 آهنگ</span>
-    </button>
-    <button class="quick-btn" onclick="quickSend('یک ویدیو سینمایی از غروب دریا بساز')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-      <span>🎬 ویدیو</span>
-    </button>
-    <button class="quick-btn" onclick="quickSend('یک کد پایتون برای محاسبه فاکتوریل بنویس')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-      <span>💻 کد</span>
     </button>
   </div>
 </div>
 
-<div class="chat-area" id="chatArea"></div>
+<div class="schedule-panel" id="schedulePanel">
+  <table class="schedule-table">
+    <thead>
+      <tr>
+        <th>زنگ / روز</th>
+        <th>شنبه</th>
+        <th>یک‌شنبه</th>
+        <th>دوشنبه</th>
+        <th>سه‌شنبه</th>
+        <th>چهارشنبه</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="period">زنگ اول</td>
+        <td>ورزش<span class="teacher">(آقای شهاب)</span></td>
+        <td>علوم<span class="teacher">(آقای توکلی)</span></td>
+        <td>فارسی<span class="teacher">(آقای غلامی)</span></td>
+        <td>املا<span class="teacher">(آقای شیری)</span></td>
+        <td>پیام آسمانی<span class="teacher">(آقای کلانی)</span></td>
+      </tr>
+      <tr>
+        <td class="period">زنگ دوم</td>
+        <td>مطالعات<span class="teacher">(آقای بهزادی)</span></td>
+        <td>ریاضی<span class="teacher">(آقای رسولی)</span></td>
+        <td>هنر<span class="teacher">(آقای شمس)</span></td>
+        <td>علوم<span class="teacher">(آقای توکلی)</span></td>
+        <td>قرآن<span class="teacher">(آقای شعاع)</span></td>
+      </tr>
+      <tr>
+        <td class="period">زنگ سوم</td>
+        <td>زبان<span class="teacher">(آقای فهندژ)</span></td>
+        <td>عربی<span class="teacher">(آقای زارعی)</span></td>
+        <td>فناوری<span class="teacher">(آقای غلامی)</span></td>
+        <td>تفکر<span class="teacher">(آقای شمس)</span></td>
+        <td>ریاضی<span class="teacher">(آقای رسولی)</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="reminder-panel" id="reminderPanel">
+  <div class="reminder-card">
+    <div class="reminder-title">📅 درس‌های فردا</div>
+    <div class="reminder-text" id="tomorrowLessons">در حال محاسبه...</div>
+  </div>
+  <div class="reminder-card">
+    <div class="reminder-title">⏰ زنگ بیدارباش</div>
+    <div class="reminder-text" id="wakeUpTime">در حال محاسبه...</div>
+  </div>
+</div>
+
+<div class="chat-area active" id="chatArea"></div>
 
 <div class="file-preview" id="filePreview">
   <img id="filePreviewImg" src="" alt="">
@@ -186,24 +736,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Google Sans
   <button class="remove-file" onclick="removeFile()">×</button>
 </div>
 
-<div class="input-bar-container">
+<div class="input-bar-container" id="inputBarContainer">
   <div class="input-bar">
-    <button class="icon-btn" onclick="attachFile()">
+    <button class="icon-btn" onclick="attachFile()" title="پیوست عکس">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="12" y1="5" x2="12" y2="19"/>
         <line x1="5" y1="12" x2="19" y2="12"/>
       </svg>
     </button>
-    <input type="text" class="chat-input" id="chatInput" placeholder="سوال خود را بنویسید..." autocomplete="off">
-    <button class="icon-btn" id="micBtn" onclick="toggleVoice()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/>
-        <path d="M19 10v2a7 7 0 01-14 0v-2"/>
-        <line x1="12" y1="19" x2="12" y2="23"/>
-        <line x1="8" y1="23" x2="16" y2="23"/>
-      </svg>
-    </button>
-    <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+    <input type="text" class="chat-input" id="chatInput" placeholder="سلام! من هوش مصنوعی سام هستم..." autocomplete="off">
+    <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="ارسال">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="12" y1="19" x2="12" y2="5"/>
         <polyline points="5 12 12 5 19 12"/>
@@ -215,15 +757,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Google Sans
 <div class="toast" id="toast"></div>
 
 <script>
-/* ============================================================
-   محمد سام ملک زاده — نسخه ۷.۰
-   افزایش سرویس‌های ویدیو، آهنگ و تحلیل عکس
-   ============================================================ */
+/* ================================================================
+   هوش مصنوعی سام — نسخه نهایی ۳.۰
+   ================================================================ */
+'use strict';
 
+/* ============ متغیرها ============ */
 let isFirstMessage = true;
 let isGenerating = false;
-let isRecording = false;
-let recognition = null;
 let attachedFile = null;
 const MAX_FILE_SIZE = 200 * 1024 * 1024;
 
@@ -234,78 +775,176 @@ const centerContent = document.getElementById('centerContent');
 const filePreview = document.getElementById('filePreview');
 const filePreviewImg = document.getElementById('filePreviewImg');
 const fileInfo = document.getElementById('fileInfo');
+const schedulePanel = document.getElementById('schedulePanel');
+const reminderPanel = document.getElementById('reminderPanel');
+const inputBarContainer = document.getElementById('inputBarContainer');
 
-/* ============ ذرات ============ */
+/* ================================================================
+   برنامه کلاسی
+   ================================================================ */
+const SCHEDULE = {
+  'شنبه': [
+    { subject: 'ورزش', teacher: 'آقای شهاب' },
+    { subject: 'مطالعات', teacher: 'آقای بهزادی' },
+    { subject: 'زبان', teacher: 'آقای فهندژ' }
+  ],
+  'یک‌شنبه': [
+    { subject: 'علوم', teacher: 'آقای توکلی' },
+    { subject: 'ریاضی', teacher: 'آقای رسولی' },
+    { subject: 'عربی', teacher: 'آقای زارعی' }
+  ],
+  'دوشنبه': [
+    { subject: 'فارسی', teacher: 'آقای غلامی' },
+    { subject: 'هنر', teacher: 'آقای شمس' },
+    { subject: 'فناوری', teacher: 'آقای غلامی' }
+  ],
+  'سه‌شنبه': [
+    { subject: 'املا', teacher: 'آقای شیری' },
+    { subject: 'علوم', teacher: 'آقای توکلی' },
+    { subject: 'تفکر', teacher: 'آقای شمس' }
+  ],
+  'چهارشنبه': [
+    { subject: 'پیام آسمانی', teacher: 'آقای کلانی' },
+    { subject: 'قرآن', teacher: 'آقای شعاع' },
+    { subject: 'ریاضی', teacher: 'آقای رسولی' }
+  ]
+};
+
+const DAYS_FA = ['یک‌شنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنج‌شنبه','جمعه','شنبه'];
+function getTodayName(){ return DAYS_FA[new Date().getDay()]; }
+function getTomorrowName(){ return DAYS_FA[(new Date().getDay() + 1) % 7]; }
+
+/* ================================================================
+   ذرات — بهینه‌سازی شده
+   ================================================================ */
 function createParticles(){
   const c = document.getElementById('particles');
-  const colors = ['#4285f4','#9b72cb','#d96570','#f2a600','#a8c7fa','#00d9c0','#ff95c4'];
-  for (let i = 0; i < 45; i++){
+  if (!c) return;
+  c.innerHTML = '';
+  const colors = ['#4285f4','#9b72cb','#d96570','#f2a600','#a8c7fa','#00d9c0'];
+  const isMobile = window.innerWidth < 600;
+  const count = isMobile ? 22 : 38;
+  for (let i = 0; i < count; i++){
     const p = document.createElement('div');
     p.className = 'particle';
-    const col = colors[Math.floor(Math.random()*colors.length)];
-    p.style.left = Math.random()*100+'%';
+    const col = colors[(Math.random() * colors.length) | 0];
+    p.style.left = (Math.random() * 100) + '%';
     p.style.background = col;
-    p.style.boxShadow = '0 0 10px ' + col + ', 0 0 5px ' + col;
-    p.style.animationDelay = Math.random()*12+'s';
-    p.style.animationDuration = (8+Math.random()*8)+'s';
-    const s = (1.5+Math.random()*3)+'px';
-    p.style.width = s; p.style.height = s;
+    p.style.boxShadow = '0 0 8px ' + col;
+    p.style.animationDelay = (Math.random() * 12) + 's';
+    p.style.animationDuration = (10 + Math.random() * 8) + 's';
+    const s = (1.5 + Math.random() * 2.5) + 'px';
+    p.style.width = s;
+    p.style.height = s;
     c.appendChild(p);
   }
 }
 
-/* ============ توابع کمکی ============ */
+/* ================================================================
+   توابع کمکی
+   ================================================================ */
 function showToast(msg, dur){
-  dur = dur || 2500;
+  dur = dur || 2200;
   const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  clearTimeout(t._t); t._t = setTimeout(function(){t.classList.remove('show')}, dur);
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(function(){ t.classList.remove('show'); }, dur);
 }
 function escapeHtml(text){
-  const d = document.createElement('div'); d.textContent = text; return d.innerHTML;
+  const d = document.createElement('div');
+  d.textContent = text;
+  return d.innerHTML;
 }
-function scrollToBottom(){ setTimeout(function(){ chatArea.scrollTop = chatArea.scrollHeight; }, 100); }
-function pickRandom(a){ return a[Math.floor(Math.random()*a.length)]; }
-function sleep(ms){ return new Promise(function(r){ setTimeout(r, ms) }); }
+function scrollToBottom(){
+  requestAnimationFrame(function(){
+    chatArea.scrollTop = chatArea.scrollHeight;
+  });
+}
+function pickRandom(a){ return a[(Math.random() * a.length) | 0]; }
 
-/* ============ پیش‌بارگذاری ============ */
-function preloadImage(url, t){
-  t = t || 20000;
+/* ================================================================
+   تب‌ها
+   ================================================================ */
+function showTab(tab, el){
+  document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
+  if (el) el.classList.add('active');
+
+  chatArea.classList.remove('active');
+  schedulePanel.classList.remove('active');
+  reminderPanel.classList.remove('active');
+  centerContent.classList.add('hidden');
+  inputBarContainer.style.display = 'none';
+
+  if (tab === 'chat'){
+    chatArea.classList.add('active');
+    inputBarContainer.style.display = 'block';
+    if (isFirstMessage){
+      centerContent.classList.remove('hidden');
+      chatArea.classList.remove('active');
+    }
+  } else if (tab === 'schedule'){
+    schedulePanel.classList.add('active');
+    updateScheduleView();
+  } else if (tab === 'reminder'){
+    reminderPanel.classList.add('active');
+    updateReminder();
+  }
+}
+
+function updateScheduleView(){
+  const today = getTodayName();
+  document.querySelectorAll('.schedule-table th').forEach(function(th){
+    th.style.background = '';
+    if (th.textContent.trim() === today){
+      th.style.background = 'linear-gradient(135deg,#f2a600,#d96570)';
+    }
+  });
+}
+
+function updateReminder(){
+  const tomorrow = getTomorrowName();
+  const tomorrowEl = document.getElementById('tomorrowLessons');
+  const wakeEl = document.getElementById('wakeUpTime');
+
+  if (SCHEDULE[tomorrow]){
+    const lessons = SCHEDULE[tomorrow];
+    let text = '<span class="reminder-hl">' + tomorrow + '</span> (فردا) — ' + lessons.length + ' زنگ:<br>';
+    lessons.forEach(function(l, i){
+      text += '<br>📚 زنگ ' + (i + 1) + ': <span class="reminder-hl">' + l.subject + '</span> (' + l.teacher + ')';
+    });
+    tomorrowEl.innerHTML = text;
+    wakeEl.innerHTML = 'برای رسیدن به <span class="reminder-hl">زنگ اول فردا</span> ساعت <span class="reminder-hl">۶:۳۰</span> بیدار شو.<br>زنگ اول: <span class="reminder-hl">' + SCHEDULE[tomorrow][0].subject + '</span>';
+  } else {
+    tomorrowEl.innerHTML = 'فردا <span class="reminder-hl">' + tomorrow + '</span> است — تعطیل! 🎉';
+    wakeEl.innerHTML = 'فردا تعطیل است — می‌توانی بیشتر بخوابی! 😴';
+  }
+  updateScheduleView();
+}
+
+/* ================================================================
+   پیش‌بارگذاری تصویر
+   ================================================================ */
+function preloadImage(url, timeout){
+  timeout = timeout || 25000;
   return new Promise(function(res){
     const i = new Image();
-    const to = setTimeout(function(){ i.src=''; res(false); }, t);
+    const to = setTimeout(function(){ i.src = ''; res(false); }, timeout);
     i.onload = function(){ clearTimeout(to); res(true); };
     i.onerror = function(){ clearTimeout(to); res(false); };
     i.src = url;
   });
 }
-function preloadVideo(url, t){
-  t = t || 45000;
-  return new Promise(function(res){
-    const v = document.createElement('video');
-    const to = setTimeout(function(){ v.src=''; res(false); }, t);
-    v.onloadeddata = function(){ clearTimeout(to); res(true); };
-    v.onerror = function(){ clearTimeout(to); res(false); };
-    v.src = url;
-  });
-}
-function preloadAudio(url, t){
-  t = t || 20000;
-  return new Promise(function(res){
-    const a = document.createElement('audio');
-    const to = setTimeout(function(){ a.src=''; res(false); }, t);
-    a.oncanplaythrough = function(){ clearTimeout(to); res(true); };
-    a.onerror = function(){ clearTimeout(to); res(false); };
-    a.src = url;
-  });
-}
 
-/* ============ سرویس پایه Pollinations ============ */
-async function fetchPollinations(prompt, model){
+/* ================================================================
+   سرویس پایه — Pollinations
+   ================================================================ */
+async function fetchPollinations(prompt, model, timeout){
+  timeout = timeout || 30000;
   try{
     const url = 'https://text.pollinations.ai/' + encodeURIComponent(prompt) + '?model=' + model + '&seed=' + Date.now() + '&nologo=true';
     const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 30000);
+    const to = setTimeout(function(){ ctrl.abort(); }, timeout);
     const res = await fetch(url, { signal: ctrl.signal });
     clearTimeout(to);
     if (!res.ok) return null;
@@ -316,10 +955,10 @@ async function fetchPollinations(prompt, model){
 }
 
 /* ================================================================
-   💬 چت متنی — ۸ سرویس
+   💬 چت متنی — ۱۲ سرویس موازی
    ================================================================ */
 async function chatText(userText){
-  const sys = 'تو محمد سام هستی — دستیار هوشمند فارسی، خودمونی و صمیمی.\n- مثل یه رفیق باهوش حرف بزن\n- فارسی محاوره‌ای روان\n- ایموجی بجا\n- دقیق و کامل\n\nسوال کاربر: ' + userText;
+  const sys = 'تو «هوش مصنوعی سام» هستی — دستیار هوشمند فارسی، خودمونی و صمیمی. مدیریت: محمد سام ملک زاده.\n- مثل یه رفیق باهوش حرف بزن\n- فارسی محاوره‌ای روان\n- ایموجی بجا\n- دقیق و کامل\n\nسوال کاربر: ' + userText;
 
   const services = [
     { name: 'DeepSeek', fn: function(){ return fetchPollinations(sys, 'deepseek'); } },
@@ -328,11 +967,17 @@ async function chatText(userText){
     { name: 'Mistral', fn: function(){ return fetchPollinations(sys, 'mistral'); } },
     { name: 'Llama', fn: function(){ return fetchPollinations(sys, 'llama'); } },
     { name: 'Gemini', fn: function(){ return fetchPollinations(sys, 'gemini'); } },
+    { name: 'Gemini Fast', fn: function(){ return fetchPollinations(sys, 'gemini-fast'); } },
     { name: 'Qwen', fn: function(){ return fetchPollinations(sys, 'qwen-coder'); } },
-    { name: 'SearchGPT', fn: function(){ return fetchPollinations(sys, 'searchgpt'); } }
+    { name: 'SearchGPT', fn: function(){ return fetchPollinations(sys, 'searchgpt'); } },
+    { name: 'Kimi', fn: function(){ return fetchPollinations(sys, 'kimi'); } },
+    { name: 'Grok', fn: function(){ return fetchPollinations(sys, 'grok'); } },
+    { name: 'Claude Hybrid', fn: function(){ return fetchPollinations(sys, 'claude-hybridspace'); } }
   ];
+
   const results = [];
   const statuses = services.map(function(s){ return { name: s.name, status: 'pending' }; });
+
   await Promise.all(services.map(async function(s, i){
     try{
       const r = await s.fn();
@@ -340,54 +985,88 @@ async function chatText(userText){
       else statuses[i].status = 'fail';
     }catch(e){ statuses[i].status = 'fail'; }
   }));
-  if (results.length === 0) return { text: '⚠️ سرور شلوغه. ۱۵ ثانیه صبر کن.', statuses: statuses };
+
+  if (results.length === 0){
+    return { text: '⚠️ سرورها شلوغ هستن. ۱۵ ثانیه صبر کن و دوباره بفرست.', statuses: statuses };
+  }
   const chosen = pickRandom(results);
-  return { text: chosen.text, service: chosen.service, statuses: statuses };
+  return { text: chosen.text, service: chosen.service, statuses: statuses, successCount: results.length };
 }
 
 /* ================================================================
-   💻 کدنویسی — ۸ سرویس
+   🖼️ تحلیل تصویر — ۸ سرویس موازی
    ================================================================ */
-async function chatCode(userText){
-  const prompt = 'تو یک برنامه‌نویس حرفه‌ای هستی. کد کامل و قابل اجرا بنویس و توضیح کوتاه بده.\n\nدرخواست: ' + userText;
+async function analyzeImage(dataUrl, userPrompt){
+  const prompt = userPrompt || 'این تصویر را به دقت بررسی کن. اگر سوال درسی یا متن کتاب درسی است، پاسخ کامل بده. اگر عمومی است توصیف کن.';
 
   const services = [
-    { name: 'DeepSeek', fn: function(){ return fetchPollinations(prompt, 'deepseek'); } },
-    { name: 'Qwen Coder', fn: function(){ return fetchPollinations(prompt, 'qwen-coder'); } },
-    { name: 'OpenAI', fn: function(){ return fetchPollinations(prompt, 'openai'); } },
-    { name: 'OpenAI Fast', fn: function(){ return fetchPollinations(prompt, 'openai-fast'); } },
-    { name: 'Mistral', fn: function(){ return fetchPollinations(prompt, 'mistral'); } },
-    { name: 'Llama', fn: function(){ return fetchPollinations(prompt, 'llama'); } },
-    { name: 'Gemini', fn: function(){ return fetchPollinations(prompt, 'gemini'); } },
-    { name: 'SearchGPT', fn: function(){ return fetchPollinations(prompt, 'searchgpt'); } }
+    { name: 'OpenAI Vision', model: 'openai' },
+    { name: 'OpenAI Fast Vision', model: 'openai-fast' },
+    { name: 'Gemini Vision', model: 'gemini' },
+    { name: 'Gemini Fast Vision', model: 'gemini-fast' },
+    { name: 'Mistral Vision', model: 'mistral' },
+    { name: 'Llama Vision', model: 'llama' },
+    { name: 'Qwen Vision', model: 'qwen-coder' },
+    { name: 'OpenAI Large Vision', model: 'openai-large' }
   ];
-  const results = [];
+
   const statuses = services.map(function(s){ return { name: s.name, status: 'pending' }; });
+  const results = [];
+
   await Promise.all(services.map(async function(s, i){
     try{
-      const r = await s.fn();
-      if (r){ statuses[i].status = 'success'; results.push({ text: r, service: s.name }); }
-      else statuses[i].status = 'fail';
+      const ctrl = new AbortController();
+      const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+      const res = await fetch('https://text.pollinations.ai/openai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        signal: ctrl.signal,
+        body: JSON.stringify({
+          model: s.model,
+          messages: [{
+            role: 'user',
+            content: [
+              { type: 'text', text: prompt },
+              { type: 'image_url', image_url: { url: dataUrl } }
+            ]
+          }],
+          max_tokens: 1200
+        })
+      });
+      clearTimeout(to);
+      if (res.ok){
+        const data = await res.json();
+        const reply = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+        if (reply && reply.trim().length > 1){
+          statuses[i].status = 'success';
+          results.push({ text: reply.trim(), service: s.name, model: s.model });
+        } else {
+          statuses[i].status = 'fail';
+        }
+      } else {
+        statuses[i].status = 'fail';
+      }
     }catch(e){ statuses[i].status = 'fail'; }
   }));
-  if (results.length === 0) return { text: '⚠️ سرور شلوغه.', statuses: statuses };
-  const chosen = pickRandom(results);
-  return { text: chosen.text, service: chosen.service, statuses: statuses };
+
+  if (results.length === 0) return { results: [], statuses: statuses };
+  return { results: results, statuses: statuses, best: results[0] };
 }
 
 /* ================================================================
-   🎨 تولید عکس — ۹ سرویس
+   🎨 تولید عکس — ۸ سرویس موازی
    ================================================================ */
 async function generateImage(userText){
-  let prompt = userText.replace(/(عکس|تصویر|نقاشی|بکش|طراحی|بساز|برام|درست\s*کن|یه|یک|از|of|draw|image|picture|generate|create|paint)/gi,' ').replace(/\s+/g,' ').trim();
+  let prompt = userText.replace(/(عکس|تصویر|نقاشی|بکش|طراحی|بساز|برام|درست\s*کن|یه|یک|از|of|draw|image|picture|generate|create|paint)/gi, ' ').replace(/\s+/g, ' ').trim();
   if (prompt.length < 2) prompt = 'منظره زیبای سینمایی';
 
-  const models = ['flux', 'flux-pro', 'turbo', 'kontext', 'nanobanana', 'seedream', 'stable-diffusion', 'gptimage'];
+  const models = ['flux', 'flux-pro', 'turbo', 'kontext', 'nanobanana', 'seedream', 'gptimage', 'stable-diffusion'];
   const statuses = models.map(function(m){ return { name: m, status: 'pending' }; });
   const results = [];
+
   await Promise.all(models.map(async function(m, i){
     try{
-      const seed = Math.floor(Math.random()*1e6);
+      const seed = (Math.random() * 1e6) | 0;
       const url = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(prompt) + '?width=1024&height=1024&seed=' + seed + '&nologo=true&model=' + m + '&enhance=true';
       if (await preloadImage(url, 45000)){
         statuses[i].status = 'success';
@@ -396,447 +1075,66 @@ async function generateImage(userText){
     }catch(e){ statuses[i].status = 'fail'; }
   }));
 
-  // InferencePort Z-Image
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://inferenceport.ai/v1/images/generations', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ model: 'zimage', prompt: prompt })
-    });
-    clearTimeout(to);
-    if (res.ok){
-      const data = await res.json();
-      if (data.data && data.data[0] && data.data[0].b64_json){
-        const imgUrl = 'data:image/jpeg;base64,' + data.data[0].b64_json;
-        statuses.push({ name: 'InferencePort (Z-Image)', status: 'success' });
-        results.push({ url: imgUrl, service: 'InferencePort', model: 'Z-Image' });
-      }
-    }
-  }catch(e){}
-
   return { results: results, statuses: statuses };
 }
 
 /* ================================================================
-   🎬 تولید ویدیو — ۱۲+ سرویس
+   دسته‌بندی پیام
    ================================================================ */
-async function tryPollinationsVideo(prompt, model){
-  try{
-    const seed = Math.floor(Math.random()*1e6);
-    const url = 'https://gen.pollinations.ai/video/' + encodeURIComponent(prompt) + '?model=' + model + '&seed=' + seed + '&nologo=true';
-    if (await preloadVideo(url, 60000)) return { url: url, service: 'Pollinations', model: model };
-  }catch(e){}
-  return null;
-}
-async function tryAgnesVideo(prompt){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 60000);
-    const res = await fetch('https://apihub.agnes-ai.cn/v1/videos', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ model: 'agnes-video-2.5-flash', prompt: prompt, size: '720P' })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const videoId = data.id || data.video_id;
-    if (!videoId) return null;
-    // Poll for result
-    for (let i = 0; i < 20; i++){
-      await sleep(3000);
-      const pollRes = await fetch('https://apihub.agnes-ai.cn/agnesapi?video_id=' + videoId + '&model_name=agnes-video-2.5-flash');
-      if (pollRes.ok){
-        const pollData = await pollRes.json();
-        if (pollData.status === 'completed' && pollData.video_url){
-          return { url: pollData.video_url, service: 'Agnes AI', model: 'Agnes Video 2.5 Flash' };
-        }
-        if (pollData.status === 'failed') return null;
-      }
-    }
-  }catch(e){}
-  return null;
-}
-async function generateVideo(userText){
-  let prompt = userText.replace(/(فیلم|ویدیو|video|movie|بساز|برام|درست\s*کن|یه|یک|کلیپ|clip|انیمیشن|animation|make|generate|a)/gi,' ').replace(/\s+/g,' ').trim();
-  if (prompt.length < 3) prompt = 'یک صحنه سینمایی زیبا';
-
-  const videoModels = ['veo', 'seedance', 'seedance-pro', 'wan', 'wan-fast', 'grok-video-pro', 'ltx-2', 'p-video', 'nova-reel'];
-  const statuses = videoModels.map(function(m){ return { name: 'Pollinations ' + m, status: 'pending' }; });
-  statuses.push({ name: 'Agnes AI Video', status: 'pending' });
-  const results = [];
-
-  await Promise.all(videoModels.map(async function(m, i){
-    try{
-      const r = await tryPollinationsVideo(prompt, m);
-      if (r){ statuses[i].status = 'success'; results.push(r); }
-      else statuses[i].status = 'fail';
-    }catch(e){ statuses[i].status = 'fail'; }
-  }));
-
-  // Agnes AI Video
-  try{
-    const r = await tryAgnesVideo(prompt);
-    if (r){ statuses[videoModels.length].status = 'success'; results.push(r); }
-    else statuses[videoModels.length].status = 'fail';
-  }catch(e){ statuses[videoModels.length].status = 'fail'; }
-
-  if (results.length === 0){
-    const seed = Math.floor(Math.random()*1e6);
-    const imgUrl = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(prompt) + '?width=1024&height=576&seed=' + seed + '&nologo=true&model=flux';
-    if (await preloadImage(imgUrl, 25000)) return { results: [{ url: imgUrl, service: 'تصویر جایگزین', model: 'Flux', type: 'image' }], statuses: statuses };
-  }
-  return { results: results, statuses: statuses };
-}
-
-/* ================================================================
-   🎵 تولید آهنگ — ۸ سرویس
-   ================================================================ */
-async function tryPollinationsMusic(theme, voice){
-  try{
-    const lyricsPrompt = 'یک متن آهنگ کوتاه فارسی (۲-۳ بند) درباره ' + theme + ' بنویس. فقط متن آهنگ.';
-    const lyrics = await fetchPollinations(lyricsPrompt, 'openai');
-    if (!lyrics || lyrics.length < 10) return null;
-    const audioUrl = 'https://text.pollinations.ai/' + encodeURIComponent(lyrics) + '?model=openai-audio&voice=' + voice + '&format=mp3';
-    if (await preloadAudio(audioUrl, 25000)) return { url: audioUrl, service: 'Pollinations', model: 'OpenAI Audio ('+voice+')', lyrics: lyrics };
-  }catch(e){}
-  return null;
-}
-async function tryElevenLabsMusic(theme){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://gen.pollinations.ai/audio/' + encodeURIComponent(theme) + '?model=elevenlabs/eleven-v3', { signal: ctrl.signal });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const blob = await res.blob();
-    const audioUrl = URL.createObjectURL(blob);
-    if (await preloadAudio(audioUrl, 25000)) {
-      return { url: audioUrl, service: 'Pollinations', model: 'ElevenLabs Eleven v3', lyrics: '' };
-    }
-  }catch(e){}
-  return null;
-}
-async function tryACEMusic(theme){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://api.acemusic.ai/v1/music/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ prompt: theme, style: 'pop' })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const audioUrl = data.url || data.audio_url || (data.data && data.data[0] && data.data[0].url);
-    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
-      return { url: audioUrl, service: 'ACE Music', model: 'ACE-Step 1.5', lyrics: data.lyrics || '' };
-    }
-  }catch(e){}
-  return null;
-}
-async function tryHuggingFaceMusic(theme){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 60000);
-    const res = await fetch('https://api-inference.huggingface.co/models/ACE-Step/ACE-Step-v1.5', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ inputs: theme, parameters: { duration: 30 } })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const blob = await res.blob();
-    const audioUrl = URL.createObjectURL(blob);
-    if (await preloadAudio(audioUrl, 25000)) {
-      return { url: audioUrl, service: 'Hugging Face', model: 'ACE-Step v1.5', lyrics: '' };
-    }
-  }catch(e){}
-  return null;
-}
-async function tryFreeMusicLab(theme){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 40000);
-    const res = await fetch('https://freemusiclab.ai/api/generate?prompt=' + encodeURIComponent(theme), { signal: ctrl.signal });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const audioUrl = data.url || data.audio_url;
-    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
-      return { url: audioUrl, service: 'FreeMusicLab', model: 'Lyria', lyrics: '' };
-    }
-  }catch(e){}
-  return null;
-}
-async function tryFlowMusic(theme){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://flowmusic.ai/api/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ prompt: theme, royalty_free: true })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const audioUrl = data.url || data.audio_url;
-    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
-      return { url: audioUrl, service: 'Flow Music AI', model: 'Flow Music', lyrics: '' };
-    }
-  }catch(e){}
-  return null;
-}
-async function tryLatentScore(theme){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://api.latentscore.ai/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ prompt: theme, duration: 30 })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const audioUrl = data.url || data.audio_url;
-    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
-      return { url: audioUrl, service: 'LatentScore', model: 'LatentScore', lyrics: '' };
-    }
-  }catch(e){}
-  return null;
-}
-async function tryMubert(theme){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://api.mubert.com/v2/RecordTrack', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ text: theme, tags: 'pop,upbeat' })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const audioUrl = data.audio_url || data.url;
-    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
-      return { url: audioUrl, service: 'Mubert', model: 'Mubert', lyrics: '' };
-    }
-  }catch(e){}
-  return null;
-}
-async function tryBeatoven(theme){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://api.beatoven.ai/api/v1/tracks', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ prompt: theme, genre: 'pop' })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const audioUrl = data.audio_url || data.url;
-    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
-      return { url: audioUrl, service: 'Beatoven.ai', model: 'Beatoven', lyrics: '' };
-    }
-  }catch(e){}
-  return null;
-}
-async function generateMusic(userText){
-  let theme = userText.replace(/(آهنگ|موسیقی|ملودی|بساز|برام|درست\s*کن|بخون|یه|یک|make|song|music|compose|sing|audio|about|درباره)/gi,' ').replace(/\s+/g,' ').trim();
-  if (theme.length < 2) theme = 'یک ترانه شاد';
-  const voices = ['alloy','nova','shimmer','echo','fable'];
-  const services = [
-    { name: 'Pollinations OpenAI', fn: function(){ return tryPollinationsMusic(theme, pickRandom(voices)); } },
-    { name: 'Pollinations ElevenLabs', fn: function(){ return tryElevenLabsMusic(theme); } },
-    { name: 'ACE Music', fn: function(){ return tryACEMusic(theme); } },
-    { name: 'Hugging Face', fn: function(){ return tryHuggingFaceMusic(theme); } },
-    { name: 'FreeMusicLab', fn: function(){ return tryFreeMusicLab(theme); } },
-    { name: 'Flow Music AI', fn: function(){ return tryFlowMusic(theme); } },
-    { name: 'LatentScore', fn: function(){ return tryLatentScore(theme); } },
-    { name: 'Mubert', fn: function(){ return tryMubert(theme); } },
-    { name: 'Beatoven.ai', fn: function(){ return tryBeatoven(theme); } }
-  ];
-  const statuses = services.map(function(s){ return { name: s.name, status: 'pending' }; });
-  const results = [];
-  await Promise.all(services.map(async function(s, i){
-    try{
-      const r = await s.fn();
-      if (r){ statuses[i].status = 'success'; results.push(r); }
-      else statuses[i].status = 'fail';
-    }catch(e){ statuses[i].status = 'fail'; }
-  }));
-  return { results: results, statuses: statuses };
-}
-
-/* ================================================================
-   🖼️ تحلیل عکس — ۱۰+ سرویس
-   ================================================================ */
-async function tryPollinationsVision(dataUrl, prompt, model){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://text.pollinations.ai/openai', {
-      method:'POST',
-      headers:{ 'Content-Type':'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({
-        model: model,
-        messages:[{ role:'user', content:[
-          { type:'text', text: prompt },
-          { type:'image_url', image_url:{ url: dataUrl } }
-        ]}],
-        max_tokens: 800
-      })
-    });
-    clearTimeout(to);
-    if (res.ok){
-      const data = await res.json();
-      const reply = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
-      if (reply && reply.trim().length > 1) return { text: reply.trim(), service: 'Pollinations', model: model };
-    }
-  }catch(e){}
-  return null;
-}
-async function tryThreeWsVision(dataUrl, prompt){
-  try{
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://three.ws/api/vision', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ image: dataUrl, prompt: prompt })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const reply = data.text || data.description || data.result;
-    if (reply && reply.length > 1) return { text: reply, service: 'three.ws', model: 'NVIDIA NIM Vision' };
-  }catch(e){}
-  return null;
-}
-async function tryVLMRunVision(dataUrl, prompt){
-  try{
-    const base64 = dataUrl.split(',')[1];
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://gateway.vlm.run/v1/openai/chat/completions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({
-        model: 'qwen/qwen3.5-0.8b',
-        messages: [{
-          role: 'user',
-          content: [
-            { type: 'text', text: prompt },
-            { type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + base64 } }
-          ]
-        }],
-        max_tokens: 500
-      })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const reply = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
-    if (reply && reply.trim().length > 1) return { text: reply.trim(), service: 'VLM Run Gateway', model: 'Qwen3.5 Vision' };
-  }catch(e){}
-  return null;
-}
-async function tryNemotronVision(dataUrl, prompt){
-  try{
-    const base64 = dataUrl.split(',')[1];
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
-    const res = await fetch('https://blockrun.ai/v1/vision/analyze', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ image: base64, prompt: prompt })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const reply = data.text || data.description;
-    if (reply && reply.length > 1) return { text: reply, service: 'BlockRun', model: 'Nemotron 3 Nano Omni' };
-  }catch(e){}
-  return null;
-}
-async function tryHardparseOCR(dataUrl){
-  try{
-    const base64 = dataUrl.split(',')[1];
-    const ctrl = new AbortController();
-    const to = setTimeout(function(){ ctrl.abort(); }, 30000);
-    const res = await fetch('https://hardparse.com/api/ocr', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: ctrl.signal,
-      body: JSON.stringify({ image: base64 })
-    });
-    clearTimeout(to);
-    if (!res.ok) return null;
-    const data = await res.json();
-    const text = data.text || data.markdown;
-    if (text && text.length > 1) return { text: 'متن استخراج‌شده:\n' + text, service: 'Hardparse OCR', model: 'OCR' };
-  }catch(e){}
-  return null;
-}
-async function analyzeImage(file, userText){
-  const prompt = userText || 'این عکس رو توصیف کن.';
-  const services = [
-    { name: 'OpenAI Vision', fn: function(){ return tryPollinationsVision(file.dataUrl, prompt, 'openai'); } },
-    { name: 'OpenAI Fast Vision', fn: function(){ return tryPollinationsVision(file.dataUrl, prompt, 'openai-fast'); } },
-    { name: 'Gemini Vision', fn: function(){ return tryPollinationsVision(file.dataUrl, prompt, 'gemini'); } },
-    { name: 'Mistral Vision', fn: function(){ return tryPollinationsVision(file.dataUrl, prompt, 'mistral'); } },
-    { name: 'three.ws Vision', fn: function(){ return tryThreeWsVision(file.dataUrl, prompt); } },
-    { name: 'VLM Run Gateway', fn: function(){ return tryVLMRunVision(file.dataUrl, prompt); } },
-    { name: 'BlockRun Nemotron', fn: function(){ return tryNemotronVision(file.dataUrl, prompt); } },
-    { name: 'Hardparse OCR', fn: function(){ return tryHardparseOCR(file.dataUrl); } }
-  ];
-  const statuses = services.map(function(s){ return { name: s.name, status: 'pending' }; });
-  const results = [];
-  await Promise.all(services.map(async function(s, i){
-    try{
-      const r = await s.fn();
-      if (r){ statuses[i].status = 'success'; results.push(r); }
-      else statuses[i].status = 'fail';
-    }catch(e){ statuses[i].status = 'fail'; }
-  }));
-  return { results: results, statuses: statuses };
-}
-
-/* ================================================================
-   دسته‌بندی خودکار
-   ================================================================ */
-const CAT = { TEXT:'text', IMAGE:'image', MUSIC:'music', CODE:'code', VISION:'vision', VIDEO:'video' };
+const CAT = { TEXT: 'text', IMAGE: 'image', VISION: 'vision', SCHEDULE: 'schedule' };
 function detectCategory(text, file){
   if (file && file.type === 'image') return CAT.VISION;
-  const t = (text||'').toLowerCase();
-  if (/(کد\s*بنویس|کد\s*بزن|برنامه\s*بنویس|اسکریپت\s*بنویس|تابع\s*بنویس|فانکشن|پایتون|جاوا\s*اسکریپت|javascript|python|html|css|php|sql|java|write\s+code)/i.test(t)) return CAT.CODE;
-  if (/(فیلم\s*بساز|ویدیو\s*بساز|ویدیو\s*درست|فیلم\s*درست|کلیپ\s*بساز|انیمیشن\s*بساز|video|movie|clip|animation)/i.test(t)) return CAT.VIDEO;
-  if (/(آهنگ\s*بساز|موسیقی\s*بساز|ملودی\s*بساز|آهنگ\s*درست|بخون|make\s+(music|song|audio)|compose|sing)/i.test(t)) return CAT.MUSIC;
+  const t = (text || '').toLowerCase();
   if (/(عکس\s*بساز|تصویر\s*بساز|نقاشی\s*بکش|طراحی\s*کن|عکس\s*بکش|draw|image|picture|paint)/i.test(t)) return CAT.IMAGE;
+  if (/(برنامه|زنگ|کلاس|درس|معلم|آقای|فردا|امروز|بیدار)/i.test(t)) return CAT.SCHEDULE;
   return CAT.TEXT;
 }
 
 /* ================================================================
-   پیام‌ها
+   پاسخ برنامه کلاسی
+   ================================================================ */
+function getScheduleAnswer(userText){
+  const t = (userText || '').toLowerCase();
+  const today = getTodayName();
+  const tomorrow = getTomorrowName();
+
+  if (/(فردا|tomorrow)/i.test(t) && SCHEDULE[tomorrow]){
+    let reply = '📅 برنامه فردا (' + tomorrow + '):\n\n';
+    SCHEDULE[tomorrow].forEach(function(l, i){
+      reply += '📚 زنگ ' + (i + 1) + ': ' + l.subject + ' (' + l.teacher + ')\n';
+    });
+    reply += '\n⏰ برای زنگ اول فردا ساعت ۶:۳۰ بیدار شو!';
+    return reply;
+  }
+
+  if (/(امروز|today)/i.test(t) && SCHEDULE[today]){
+    let reply = '📅 برنامه امروز (' + today + '):\n\n';
+    SCHEDULE[today].forEach(function(l, i){
+      reply += '📚 زنگ ' + (i + 1) + ': ' + l.subject + ' (' + l.teacher + ')\n';
+    });
+    return reply;
+  }
+
+  if (/(برنامه|زنگ|کلاس|درس)/i.test(t)){
+    let reply = '📅 برنامه هفتگی:\n\n';
+    for (const day in SCHEDULE){
+      reply += '• ' + day + ': ' + SCHEDULE[day].map(function(l){ return l.subject; }).join(' | ') + '\n\n';
+    }
+    return reply;
+  }
+
+  if (/(بیدار)/i.test(t)){
+    if (SCHEDULE[tomorrow]){
+      return '⏰ برای رسیدن به زنگ اول فردا، ساعت ۶:۳۰ بیدار شو.\n📚 زنگ اول فردا: ' + SCHEDULE[tomorrow][0].subject;
+    }
+    return 'فردا تعطیله — هر ساعتی خواستی بیدار شو! 😴';
+  }
+
+  return null;
+}
+
+/* ================================================================
+   نمایش پیام
    ================================================================ */
 function addMessage(role, text, extra){
   extra = extra || {};
@@ -846,12 +1144,18 @@ function addMessage(role, text, extra){
   let content = escapeHtml(text);
   content = content.replace(/```(\w+)?\n?([\s\S]*?)```/g, '<pre>$2</pre>');
   content = content.replace(/`([^`]+)`/g, '<code>$1</code>');
+  content = content.replace(/\n/g, '<br>');
+
   let media = '';
-  if (extra.type === 'image' && extra.url) media = '<img src="' + extra.url + '" alt="تصویر" loading="lazy">';
-  else if (extra.type === 'audio' && extra.url) media = '<audio controls preload="metadata" src="' + extra.url + '"></audio>';
-  else if (extra.type === 'video' && extra.url) media = '<video controls preload="metadata" src="' + extra.url + '" style="max-width:100%"></video>';
+  if (extra.type === 'image' && extra.url){
+    media = '<img src="' + extra.url + '" alt="تصویر" loading="lazy">';
+  }
+
   let badge = '';
-  if (extra.service) badge = '<div class="service-badge">🎬 ' + extra.service + (extra.model ? ' — ' + extra.model : '') + '</div>';
+  if (extra.service){
+    badge = '<div class="service-badge">🤖 ' + extra.service + (extra.model ? ' — ' + extra.model : '') + '</div>';
+  }
+
   let statusList = '';
   if (extra.statuses){
     statusList = '<div class="status-list">';
@@ -862,55 +1166,58 @@ function addMessage(role, text, extra){
     });
     statusList += '</div>';
   }
-  let analysis = '';
-  if (extra.analysisText) analysis = '<div style="margin-top:10px;padding:12px;background:rgba(0,217,126,.08);border:1px solid rgba(0,217,126,.25);border-radius:12px;font-size:.88rem;line-height:1.8">' + escapeHtml(extra.analysisText) + '</div>';
+
   const encoded = btoa(unescape(encodeURIComponent(text)));
   const actions = role === 'ai' ? (
     '<div class="message-actions">' +
     '<button class="action-btn" onclick="copyMsg(this, \'' + encoded + '\')" title="کپی"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button>' +
-    '<button class="action-btn" onclick="speakMsg(\'' + encoded + '\')" title="خواندن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg></button>' +
     '<button class="action-btn" onclick="downloadMsg(\'' + encoded + '\')" title="دانلود"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>' +
     '</div>'
   ) : '';
-  msg.innerHTML = '<div class="message-avatar ' + av + '">م</div><div class="message-content"><div class="message-bubble">' + badge + content + media + analysis + statusList + '</div>' + actions + '</div>';
+
+  msg.innerHTML = '<div class="message-avatar ' + av + '">م</div><div class="message-content"><div class="message-bubble">' + badge + content + media + statusList + '</div>' + actions + '</div>';
   chatArea.appendChild(msg);
   scrollToBottom();
 }
 
 function addTyping(){
   const m = document.createElement('div');
-  m.className = 'message ai'; m.id = 'typingMsg';
+  m.className = 'message ai';
+  m.id = 'typingMsg';
   m.innerHTML = '<div class="message-avatar ai">م</div><div class="message-content"><div class="message-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div></div>';
-  chatArea.appendChild(m); scrollToBottom();
+  chatArea.appendChild(m);
+  scrollToBottom();
 }
-function removeTyping(){ const el = document.getElementById('typingMsg'); if (el) el.remove(); }
+function removeTyping(){
+  const el = document.getElementById('typingMsg');
+  if (el) el.remove();
+}
 
 function copyMsg(btn, encoded){
   const text = decodeURIComponent(escape(atob(encoded)));
-  navigator.clipboard.writeText(text).then(function(){ btn.classList.add('done'); showToast('✅ کپی شد'); setTimeout(function(){ btn.classList.remove('done'); }, 1500); });
-}
-function speakMsg(encoded){
-  const text = decodeURIComponent(escape(atob(encoded)));
-  if (!('speechSynthesis' in window)) return showToast('پشتیبانی نمی‌شود');
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text.substring(0, 1000));
-  u.lang = 'fa-IR'; u.rate = 1;
-  speechSynthesis.speak(u);
-  showToast('🔊 در حال خواندن');
+  navigator.clipboard.writeText(text).then(function(){
+    btn.classList.add('done');
+    showToast('✅ کپی شد');
+    setTimeout(function(){ btn.classList.remove('done'); }, 1500);
+  });
 }
 function downloadMsg(encoded){
   const text = decodeURIComponent(escape(atob(encoded)));
   const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'mohammadsam_' + Date.now() + '.txt';
+  a.download = 'sami_' + Date.now() + '.txt';
   a.click();
   showToast('📥 دانلود شد');
 }
 
+/* ================================================================
+   پیوست فایل
+   ================================================================ */
 function attachFile(){
   const input = document.createElement('input');
-  input.type = 'file'; input.accept = 'image/*';
+  input.type = 'file';
+  input.accept = 'image/*';
   input.onchange = async function(e){
     const file = e.target.files[0];
     if (!file) return;
@@ -925,7 +1232,12 @@ function attachFile(){
   input.click();
 }
 function readAsDataURL(file){
-  return new Promise(function(res, rej){ const r = new FileReader(); r.onload = function(){ res(r.result); }; r.onerror = rej; r.readAsDataURL(file); });
+  return new Promise(function(res, rej){
+    const r = new FileReader();
+    r.onload = function(){ res(r.result); };
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
 }
 function showFilePreview(){
   if (!attachedFile) return;
@@ -939,15 +1251,20 @@ function removeFile(){
   filePreviewImg.src = '';
 }
 
+/* ================================================================
+   ارسال پیام
+   ================================================================ */
 async function sendMessage(){
   if (isGenerating) return;
   const text = chatInput.value.trim();
   if (!text && !attachedFile) return;
+
   if (isFirstMessage){
     centerContent.classList.add('hidden');
     chatArea.classList.add('active');
     isFirstMessage = false;
   }
+
   const userMsg = text || '[عکس]';
   addMessage('user', userMsg, attachedFile ? { type: 'image', url: attachedFile.dataUrl } : {});
   const file = attachedFile;
@@ -955,49 +1272,46 @@ async function sendMessage(){
   chatInput.value = '';
   sendBtn.classList.remove('active');
   isGenerating = true;
+
   const category = detectCategory(text, file);
   addTyping();
+
   try{
-    if (category === CAT.IMAGE){
+    if (category === CAT.VISION){
+      const r = await analyzeImage(file.dataUrl, text);
+      removeTyping();
+      if (r.results.length === 0){
+        addMessage('ai', '⚠️ متأسفانه نتونستم تصویر رو تحلیل کنم. دوباره امتحان کن.', { statuses: r.statuses });
+      } else {
+        addMessage('ai', '🖼️ تحلیل تصویر:\n\n' + r.best.text, {
+          service: r.best.service,
+          model: r.best.model,
+          statuses: r.statuses
+        });
+      }
+    }
+    else if (category === CAT.SCHEDULE){
+      const scheduleAnswer = getScheduleAnswer(text);
+      if (scheduleAnswer){
+        removeTyping();
+        addMessage('ai', scheduleAnswer, { service: 'برنامه کلاسی' });
+      } else {
+        const r = await chatText(text);
+        removeTyping();
+        addMessage('ai', r.text, { service: r.service, statuses: r.statuses });
+      }
+    }
+    else if (category === CAT.IMAGE){
       const r = await generateImage(text);
       removeTyping();
-      if (r.results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست عکس بسازه.', { statuses: r.statuses });
-      else {
+      if (r.results.length === 0){
+        addMessage('ai', '⚠️ هیچ سرویسی نتونست عکس بسازه.', { statuses: r.statuses });
+      } else {
         addMessage('ai', '🎨 ' + r.results.length + ' عکس از ' + r.statuses.length + ' سرویس ساخته شد:', { statuses: r.statuses });
-        r.results.forEach(function(x){ addMessage('ai', '🎨 عکس:', { type: 'image', url: x.url, service: x.service, model: x.model }); });
+        r.results.forEach(function(x){
+          addMessage('ai', '🎨 عکس:', { type: 'image', url: x.url, service: x.service, model: x.model });
+        });
       }
-    }
-    else if (category === CAT.MUSIC){
-      const r = await generateMusic(text);
-      removeTyping();
-      if (r.results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست آهنگ بسازه.', { statuses: r.statuses });
-      else {
-        addMessage('ai', '🎵 ' + r.results.length + ' آهنگ ساخته شد:', { statuses: r.statuses });
-        r.results.forEach(function(x){ addMessage('ai', '🎵 آهنگ:', { type: 'audio', url: x.url, service: x.service, model: x.model }); });
-      }
-    }
-    else if (category === CAT.VIDEO){
-      const r = await generateVideo(text);
-      removeTyping();
-      if (r.results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست ویدیو بسازه.', { statuses: r.statuses });
-      else {
-        addMessage('ai', '🎬 ' + r.results.length + ' ویدیو ساخته شد:', { statuses: r.statuses });
-        r.results.forEach(function(x){ addMessage('ai', '🎬 ویدیو:', { type: x.type || 'video', url: x.url, service: x.service, model: x.model }); });
-      }
-    }
-    else if (category === CAT.VISION){
-      const r = await analyzeImage(file, text);
-      removeTyping();
-      if (r.results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست تحلیل کنه.', { statuses: r.statuses });
-      else {
-        addMessage('ai', '🖼️ ' + r.results.length + ' تحلیل دریافت شد:', { statuses: r.statuses });
-        r.results.forEach(function(x){ addMessage('ai', '🖼️ تحلیل:', { service: x.service, model: x.model, analysisText: x.text }); });
-      }
-    }
-    else if (category === CAT.CODE){
-      const r = await chatCode(text);
-      removeTyping();
-      addMessage('ai', r.text, { service: r.service, statuses: r.statuses });
     }
     else {
       const r = await chatText(text);
@@ -1017,32 +1331,24 @@ function quickSend(text){
   sendMessage();
 }
 
-function toggleVoice(){
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR){ showToast('مرورگر پشتیبانی نمی‌کند.'); return; }
-  const micBtn = document.getElementById('micBtn');
-  if (isRecording && recognition){ recognition.stop(); return; }
-  recognition = new SR();
-  recognition.lang = 'fa-IR'; recognition.continuous = false; recognition.interimResults = false;
-  recognition.onstart = function(){ isRecording = true; micBtn.classList.add('recording'); showToast('🎤 ضبط...'); };
-  recognition.onend = function(){ isRecording = false; micBtn.classList.remove('recording'); };
-  recognition.onresult = function(e){ chatInput.value = e.results[0][0].transcript; sendBtn.classList.add('active'); setTimeout(function(){ sendMessage(); }, 400); };
-  recognition.onerror = function(){ isRecording = false; micBtn.classList.remove('recording'); };
-  try{ recognition.start(); }catch(e){}
-}
-
+/* ================================================================
+   گفتگوی جدید
+   ================================================================ */
 function newChat(){
   chatArea.innerHTML = '';
-  chatArea.classList.remove('active');
-  centerContent.classList.remove('hidden');
   isFirstMessage = true;
   isGenerating = false;
   removeFile();
   chatInput.value = '';
   sendBtn.classList.remove('active');
+  centerContent.classList.remove('hidden');
+  chatArea.classList.remove('active');
   showToast('✨ گفتگوی جدید');
 }
 
+/* ================================================================
+   رویدادها
+   ================================================================ */
 chatInput.addEventListener('input', function(){
   sendBtn.classList.toggle('active', !!this.value.trim() || !!attachedFile);
 });
@@ -1053,10 +1359,25 @@ chatInput.addEventListener('keydown', function(e){
   }
 });
 
+/* ================================================================
+   راه‌اندازی
+   ================================================================ */
 window.addEventListener('DOMContentLoaded', function(){
   createParticles();
   chatInput.focus();
-  console.log('%c✅ محمد سام ملک زاده — ۴۰+ سرویس','color:#4285f4;font-size:14px;font-weight:bold');
+  updateReminder();
+  setInterval(updateReminder, 60000);
+  console.log('%c✅ هوش مصنوعی سام آماده است','color:#4285f4;font-size:14px;font-weight:bold');
+  console.log('👤 مدیریت: محمد سام ملک زاده');
+  console.log('💬 چت: ۱۲ سرویس | 🖼️ تحلیل: ۸ سرویس | 🎨 عکس: ۸ سرویس');
+});
+
+document.addEventListener('visibilitychange', function(){
+  if (document.hidden){
+    document.querySelectorAll('.particle').forEach(function(p){ p.style.animationPlayState = 'paused'; });
+  } else {
+    document.querySelectorAll('.particle').forEach(function(p){ p.style.animationPlayState = 'running'; });
+  }
 });
 </script>
 </body>
