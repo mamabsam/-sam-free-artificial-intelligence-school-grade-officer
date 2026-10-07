@@ -3,594 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="محمد سام ملک زاده — دستیار هوشمند چند سرویسی">
-<meta name="theme-color" content="#0a1c3a">
 <title>محمد سام ملک زاده</title>
-<script src="https://js.puter.com/v2/"></script>
 <style>
-/* ================================================================
-   محمد سام ملک زاده — استایل کامل
-   نسخه ۴.۰
-   ================================================================ */
-
-/* ============ متغیرها ============ */
-:root {
-  --bg-primary: #000;
-  --bg-secondary: #050510;
-  --bg-surface: rgba(30,31,32,.9);
-  --bg-surface-2: rgba(43,45,47,.97);
-  --text-primary: #e3e3e3;
-  --text-secondary: #9aa0a6;
-  --text-placeholder: #8e918f;
-  --border: rgba(255,255,255,.06);
-  --accent-blue: #4285f4;
-  --accent-blue-2: #1a73e8;
-  --accent-purple: #9b72cb;
-  --accent-pink: #d96570;
-  --accent-orange: #f2a600;
-  --accent-green: #00d97e;
-  --accent-cyan: #00d9c0;
-  --danger: #ff6b6b;
-}
-
-/* ============ ریست ============ */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden}
-
-/* ================================================================
-   RGB Border
-   ================================================================ */
-.rgb-border{
-  position:fixed;inset:0;z-index:9999;pointer-events:none;
-  padding:3px;
-  background:linear-gradient(90deg,#ff0000,#ff7f00,#ffff00,#00ff00,#00ffff,#0000ff,#8b00ff,#ff00ff,#ff0000);
-  background-size:400% 400%;
-  animation:rgbMove 4s linear infinite;
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  mask-composite:exclude;
-  border-radius:2px;
-  box-shadow:0 0 20px rgba(255,0,255,.3),inset 0 0 20px rgba(0,255,255,.2);
-}
+.rgb-border{position:fixed;inset:0;z-index:9999;pointer-events:none;padding:3px;background:linear-gradient(90deg,#ff0000,#ff7f00,#ffff00,#00ff00,#00ffff,#0000ff,#8b00ff,#ff00ff,#ff0000);background-size:400% 400%;animation:rgbMove 4s linear infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;border-radius:2px;box-shadow:0 0 20px rgba(255,0,255,.3),inset 0 0 20px rgba(0,255,255,.2)}
 @keyframes rgbMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-
-/* ============ بدنه ============ */
-body{
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Google Sans',Tahoma,sans-serif;
-  background:#000;color:var(--text-primary);
-  display:flex;flex-direction:column;
-  height:100vh;overflow:hidden;position:relative;
-}
-
-/* ================================================================
-   پس‌زمینه کهکشانی
-   ================================================================ */
-.bg-canvas{
-  position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse at 15% 10%,rgba(66,133,244,.22) 0%,transparent 55%),
-    radial-gradient(ellipse at 85% 15%,rgba(155,114,203,.22) 0%,transparent 55%),
-    radial-gradient(ellipse at 50% 85%,rgba(217,101,112,.18) 0%,transparent 55%),
-    radial-gradient(ellipse at 90% 90%,rgba(242,166,0,.15) 0%,transparent 55%),
-    radial-gradient(ellipse at 10% 60%,rgba(0,217,200,.12) 0%,transparent 55%),
-    radial-gradient(ellipse at 70% 45%,rgba(255,100,200,.1) 0%,transparent 55%),
-    radial-gradient(circle at 30% 30%,rgba(168,199,250,.08) 0%,transparent 40%),
-    linear-gradient(to bottom,#000 0%,#050510 25%,#0a1a2e 55%,#0e2545 85%,#12305a 100%);
-}
-.bg-stars{
-  position:fixed;inset:0;z-index:1;pointer-events:none;
-  background-image:
-    radial-gradient(2px 2px at 10% 20%,rgba(255,255,255,.95),transparent),
-    radial-gradient(1px 1px at 30% 60%,rgba(168,199,250,.85),transparent),
-    radial-gradient(1.5px 1.5px at 70% 30%,rgba(255,215,0,.8),transparent),
-    radial-gradient(1px 1px at 90% 70%,rgba(217,101,112,.85),transparent),
-    radial-gradient(1.5px 1.5px at 45% 85%,rgba(155,114,203,.8),transparent),
-    radial-gradient(1px 1px at 60% 15%,rgba(255,255,255,.7),transparent),
-    radial-gradient(2px 2px at 25% 45%,rgba(66,133,244,.75),transparent),
-    radial-gradient(1px 1px at 15% 75%,rgba(0,217,200,.7),transparent),
-    radial-gradient(1.5px 1.5px at 78% 55%,rgba(255,255,255,.6),transparent),
-    radial-gradient(1px 1px at 5% 90%,rgba(255,150,220,.7),transparent),
-    radial-gradient(2px 2px at 95% 25%,rgba(255,255,255,.8),transparent),
-    radial-gradient(1.5px 1.5px at 55% 5%,rgba(168,199,250,.7),transparent);
-  background-size:100% 100%;
-  animation:twinkle 5s infinite;
-}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Google Sans',Tahoma,sans-serif;background:#000;color:#fff;display:flex;flex-direction:column;height:100vh;overflow:hidden;position:relative}
+.bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 15% 10%,rgba(66,133,244,.22) 0%,transparent 55%),radial-gradient(ellipse at 85% 15%,rgba(155,114,203,.22) 0%,transparent 55%),radial-gradient(ellipse at 50% 85%,rgba(217,101,112,.18) 0%,transparent 55%),radial-gradient(ellipse at 90% 90%,rgba(242,166,0,.15) 0%,transparent 55%),radial-gradient(ellipse at 10% 60%,rgba(0,217,200,.12) 0%,transparent 55%),radial-gradient(ellipse at 70% 45%,rgba(255,100,200,.1) 0%,transparent 55%),linear-gradient(to bottom,#000 0%,#050510 25%,#0a1a2e 55%,#0e2545 85%,#12305a 100%)}
+.bg-stars{position:fixed;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(2px 2px at 10% 20%,rgba(255,255,255,.95),transparent),radial-gradient(1px 1px at 30% 60%,rgba(168,199,250,.85),transparent),radial-gradient(1.5px 1.5px at 70% 30%,rgba(255,215,0,.8),transparent),radial-gradient(1px 1px at 90% 70%,rgba(217,101,112,.85),transparent),radial-gradient(1.5px 1.5px at 45% 85%,rgba(155,114,203,.8),transparent),radial-gradient(1px 1px at 60% 15%,rgba(255,255,255,.7),transparent),radial-gradient(2px 2px at 25% 45%,rgba(66,133,244,.75),transparent),radial-gradient(1px 1px at 15% 75%,rgba(0,217,200,.7),transparent);background-size:100% 100%;animation:twinkle 5s infinite}
 @keyframes twinkle{0%,100%{opacity:.65}50%{opacity:1}}
-
-/* ============ نوارهای نوری ============ */
-.light-ribbon{
-  position:fixed;z-index:1;pointer-events:none;
-  width:200%;height:2px;left:-50%;
-  background:linear-gradient(90deg,transparent,rgba(66,133,244,.4),rgba(155,114,203,.6),transparent);
-  animation:ribbonMove 20s infinite linear;opacity:.5;
-}
-.light-ribbon:nth-child(2){top:20%}
-.light-ribbon:nth-child(3){top:50%;animation-delay:-7s;background:linear-gradient(90deg,transparent,rgba(217,101,112,.5),rgba(242,166,0,.5),transparent)}
-.light-ribbon:nth-child(4){top:75%;animation-delay:-14s;background:linear-gradient(90deg,transparent,rgba(0,217,200,.4),rgba(66,133,244,.5),transparent)}
-@keyframes ribbonMove{0%{transform:translateX(-30%)}100%{transform:translateX(30%)}}
-
-/* ================================================================
-   سایدبار
-   ================================================================ */
-.sidebar{
-  position:fixed;top:0;right:-340px;width:340px;height:100vh;
-  background:linear-gradient(135deg,rgba(20,22,25,.98),rgba(15,17,20,.98));
-  backdrop-filter:blur(20px);
-  border-left:1px solid var(--border);
-  z-index:200;transition:right .35s cubic-bezier(.34,1.56,.64,1);
-  display:flex;flex-direction:column;
-  box-shadow:-10px 0 40px rgba(0,0,0,.6);
-}
-.sidebar.open{right:0}
-.sidebar-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.6);
-  z-index:199;opacity:0;pointer-events:none;transition:opacity .3s;
-}
-.sidebar-overlay.show{opacity:1;pointer-events:auto}
-
-.sidebar-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px;border-bottom:1px solid var(--border);
-}
-.sidebar-logo{display:flex;align-items:center;gap:12px}
-.sidebar-logo-icon{
-  width:44px;height:44px;border-radius:12px;
-  background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570);
-  background-size:200% 200%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;font-weight:800;color:#fff;
-  box-shadow:0 0 20px rgba(66,133,244,.5);
-  animation:gradShift 5s infinite;
-}
-.sidebar-logo-text{font-size:1rem;font-weight:700;background:linear-gradient(90deg,#fff,#a8c7fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.sidebar-close{
-  width:36px;height:36px;border-radius:50%;border:none;
-  background:rgba(255,255,255,.05);color:var(--text-primary);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  transition:all .25s;font-size:1.4rem;
-}
-.sidebar-close:hover{background:rgba(255,80,80,.2);color:var(--danger);transform:rotate(90deg)}
-
-.sidebar-section{padding:16px 20px 8px;font-size:.72rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
-
-.sidebar-list{flex:1;overflow-y:auto;padding:8px}
-.sidebar-list::-webkit-scrollbar{width:6px}
-.sidebar-list::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#4285f4,#9b72cb);border-radius:6px}
-
-.sidebar-item{
-  padding:12px 14px;border-radius:12px;margin-bottom:4px;
-  display:flex;align-items:center;gap:10px;cursor:pointer;
-  transition:all .25s;font-size:.86rem;color:var(--text-primary);
-  border:1px solid transparent;
-}
-.sidebar-item:hover{background:rgba(66,133,244,.15);border-color:rgba(66,133,244,.3)}
-.sidebar-item.active{background:linear-gradient(135deg,rgba(66,133,244,.25),rgba(155,114,203,.25));border-color:rgba(66,133,244,.5);box-shadow:0 0 20px rgba(66,133,244,.3)}
-.sidebar-item svg{width:18px;height:18px;flex-shrink:0}
-.sidebar-item-text{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sidebar-item-delete{
-  width:26px;height:26px;border-radius:6px;border:none;
-  background:transparent;color:var(--text-secondary);cursor:pointer;
-  opacity:0;transition:opacity .2s;font-size:1rem;
-}
-.sidebar-item:hover .sidebar-item-delete{opacity:1}
-.sidebar-item-delete:hover{background:rgba(255,80,80,.25);color:var(--danger)}
-
-.sidebar-footer{padding:16px;border-top:1px solid var(--border)}
-.sidebar-new-chat{
-  width:100%;padding:14px;border-radius:14px;border:none;
-  background:linear-gradient(135deg,#4285f4,#1a73e8,#9b72cb);
-  background-size:200% 200%;
-  color:#fff;font-family:inherit;font-size:.9rem;font-weight:700;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
-  transition:all .3s;box-shadow:0 4px 16px rgba(66,133,244,.4);
-  animation:gradShift 3s infinite;
-}
-.sidebar-new-chat:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(66,133,244,.6)}
-
-/* ================================================================
-   هدر
-   ================================================================ */
-.header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 16px;flex-shrink:0;z-index:10;position:relative;
-  backdrop-filter:blur(24px);
-  background:linear-gradient(180deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.25) 100%);
-  border-bottom:1px solid var(--border);
-}
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;flex-shrink:0;z-index:10;position:relative;backdrop-filter:blur(24px);background:linear-gradient(180deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.25) 100%);border-bottom:1px solid rgba(255,255,255,.05)}
 .header-left{display:flex;align-items:center;gap:8px}
 .header-right{display:flex;align-items:center;gap:8px}
-
-.menu-icon,.compose-icon,.header-action{
-  width:40px;height:40px;display:flex;align-items:center;justify-content:center;
-  cursor:pointer;border-radius:50%;position:relative;
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
-  color:var(--text-primary);transition:all .3s cubic-bezier(.34,1.56,.64,1);
-}
-.menu-icon:hover,.compose-icon:hover,.header-action:hover{
-  background:rgba(255,255,255,.14);
-  border-color:rgba(66,133,244,.6);
-  box-shadow:0 0 24px rgba(66,133,244,.5);
-  transform:translateY(-2px) scale(1.05);
-}
-.menu-icon::before{
-  content:'';position:absolute;top:6px;right:8px;width:7px;height:7px;
-  border-radius:50%;background:var(--accent-blue);
-  box-shadow:0 0 10px var(--accent-blue),0 0 20px var(--accent-blue);
-  animation:pulseDot 2s infinite;
-}
+.menu-icon,.compose-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:50%;position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#e3e3e3;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.menu-icon:hover,.compose-icon:hover{background:rgba(255,255,255,.14);border-color:rgba(66,133,244,.6);box-shadow:0 0 24px rgba(66,133,244,.5);transform:translateY(-2px) scale(1.05)}
+.menu-icon::before{content:'';position:absolute;top:6px;right:8px;width:7px;height:7px;border-radius:50%;background:#4285f4;box-shadow:0 0 10px #4285f4,0 0 20px #4285f4;animation:pulseDot 2s infinite}
 @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-.menu-icon svg,.compose-icon svg,.header-action svg{width:20px;height:20px}
-
-.name-badge{
-  display:flex;align-items:center;gap:10px;padding:8px 16px;
-  border-radius:26px;
-  background:linear-gradient(135deg,rgba(66,133,244,.15),rgba(155,114,203,.15),rgba(217,101,112,.15));
-  border:1px solid rgba(255,255,255,.1);
-  position:relative;overflow:hidden;cursor:pointer;
-}
-.name-badge::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
-  transform:translateX(-100%);animation:shine 4s infinite;
-}
+.menu-icon svg,.compose-icon svg{width:20px;height:20px}
+.name-badge{display:flex;align-items:center;gap:10px;padding:8px 16px;border-radius:26px;background:linear-gradient(135deg,rgba(66,133,244,.15),rgba(155,114,203,.15),rgba(217,101,112,.15));border:1px solid rgba(255,255,255,.1);position:relative;overflow:hidden;cursor:pointer}
+.name-badge::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);animation:shine 4s infinite}
 @keyframes shine{0%{transform:translateX(-100%)}50%,100%{transform:translateX(100%)}}
-.name-dot{
-  width:10px;height:10px;border-radius:50%;
-  background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570,#f2a600);
-  background-size:300% 300%;
-  box-shadow:0 0 14px rgba(66,133,244,.8);
-  animation:gradShift 3s infinite;flex-shrink:0;
-}
+.name-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570,#f2a600);background-size:300% 300%;box-shadow:0 0 14px rgba(66,133,244,.8);animation:gradShift 3s infinite;flex-shrink:0}
 @keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.name-text{
-  font-size:1rem;font-weight:600;
-  background:linear-gradient(90deg,#fff 0%,#a8c7fa 50%,#fff 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;animation:shimmer 4s linear infinite;
-  white-space:nowrap;
-}
+.name-text{font-size:1rem;font-weight:600;background:linear-gradient(90deg,#fff 0%,#a8c7fa 50%,#fff 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;white-space:nowrap}
 @keyframes shimmer{to{background-position:200% center}}
-
-.header-title{
-  font-size:.78rem;color:var(--text-secondary);font-weight:500;
-  position:absolute;left:50%;transform:translateX(-50%);
-  white-space:nowrap;padding:6px 16px;border-radius:16px;
-  background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(66,133,244,.04));
-  border:1px solid var(--border);
-  backdrop-filter:blur(10px);
-}
+.header-title{font-size:.78rem;color:#9aa0a6;font-weight:500;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;padding:6px 16px;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(66,133,244,.04));border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(10px)}
 @media(max-width:600px){.header-title{display:none}}
-
-.avatar{
-  width:40px;height:40px;border-radius:50%;
-  background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570,#f2a600);
-  background-size:250% 250%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:15px;font-weight:800;color:#fff;cursor:pointer;
-  border:2px solid rgba(255,255,255,.2);
-  box-shadow:0 0 28px rgba(155,114,203,.6);
-  animation:gradShift 5s infinite;
-}
-
-/* ================================================================
-   محتوای وسط
-   ================================================================ */
-.center-content{
-  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:20px;z-index:5;text-align:center;position:relative;
-}
+.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570,#f2a600);background-size:250% 250%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;cursor:pointer;border:2px solid rgba(255,255,255,.2);box-shadow:0 0 28px rgba(155,114,203,.6);animation:gradShift 5s infinite}
+.center-content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;z-index:5;text-align:center;position:relative}
 .center-content.hidden{display:none}
-
 .orbit-container{width:180px;height:180px;margin-bottom:24px;position:relative;display:flex;align-items:center;justify-content:center}
 .orbit{position:absolute;border-radius:50%;border:2px solid transparent;animation:orbitSpin 8s linear infinite}
-.orbit.o1{width:100%;height:100%;border-top-color:var(--accent-blue);border-right-color:var(--accent-purple);animation-duration:8s;box-shadow:0 0 40px rgba(66,133,244,.4)}
-.orbit.o2{width:75%;height:75%;border-top-color:var(--accent-pink);border-left-color:var(--accent-orange);animation-duration:6s;animation-direction:reverse;box-shadow:0 0 35px rgba(217,101,112,.4)}
-.orbit.o3{width:50%;height:50%;border-top-color:var(--accent-cyan);border-right-color:#a8c7fa;animation-duration:4s;box-shadow:0 0 30px rgba(0,217,200,.4)}
+.orbit.o1{width:100%;height:100%;border-top-color:#4285f4;border-right-color:#9b72cb;animation-duration:8s;box-shadow:0 0 40px rgba(66,133,244,.4)}
+.orbit.o2{width:75%;height:75%;border-top-color:#d96570;border-left-color:#f2a600;animation-duration:6s;animation-direction:reverse;box-shadow:0 0 35px rgba(217,101,112,.4)}
+.orbit.o3{width:50%;height:50%;border-top-color:#00d9c0;border-right-color:#a8c7fa;animation-duration:4s;box-shadow:0 0 30px rgba(0,217,200,.4)}
 @keyframes orbitSpin{to{transform:rotate(360deg)}}
-.orbit-core{
-  width:60px;height:60px;border-radius:50%;
-  background:radial-gradient(circle,#fff 0%,#a8c7fa 40%,#4285f4 70%,#9b72cb 100%);
-  box-shadow:0 0 40px rgba(168,199,250,.8),0 0 80px rgba(66,133,244,.5),0 0 120px rgba(155,114,203,.3);
-  animation:corePulse 2s infinite;position:relative;
-}
+.orbit-core{width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#a8c7fa 40%,#4285f4 70%,#9b72cb 100%);box-shadow:0 0 40px rgba(168,199,250,.8),0 0 80px rgba(66,133,244,.5);animation:corePulse 2s infinite}
 @keyframes corePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-
-.welcome-text{
-  font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-.5px;
-  background:linear-gradient(90deg,#4285f4 0%,#9b72cb 20%,#d96570 40%,#f2a600 60%,#00d9c0 80%,#4285f4 100%);
-  background-size:300% auto;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  animation:shimmerLong 6s linear infinite;margin-bottom:8px;
-}
+.welcome-text{font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-.5px;background:linear-gradient(90deg,#4285f4 0%,#9b72cb 20%,#d96570 40%,#f2a600 60%,#00d9c0 80%,#4285f4 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerLong 6s linear infinite;margin-bottom:8px}
 @keyframes shimmerLong{to{background-position:300% center}}
-
-.welcome-name{
-  font-size:1.8rem;font-weight:800;line-height:1.3;letter-spacing:-.5px;margin-bottom:18px;
-  background:linear-gradient(135deg,#a8c7fa 0%,#fff 50%,#a8c7fa 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  animation:shimmer 3s linear infinite;
-}
-
-.welcome-sub{
-  font-size:.95rem;color:var(--text-secondary);padding:8px 20px;border-radius:22px;
-  background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(66,133,244,.06));
-  border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(10px);
-  display:flex;align-items:center;gap:8px;
-}
+.welcome-name{font-size:1.8rem;font-weight:800;line-height:1.3;letter-spacing:-.5px;margin-bottom:18px;background:linear-gradient(135deg,#a8c7fa 0%,#fff 50%,#a8c7fa 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite}
+.welcome-sub{font-size:.95rem;color:#9aa0a6;padding:8px 20px;border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(66,133,244,.06));border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px}
 .welcome-sub::before{content:'✨';font-size:.9rem;animation:sparkle 2s infinite}
 @keyframes sparkle{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
-
 .quick-actions{display:flex;gap:12px;margin-top:44px;flex-wrap:wrap;justify-content:center;max-width:640px}
-.quick-btn{
-  padding:12px 22px;border-radius:28px;
-  background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.1);color:var(--text-primary);
-  font-size:.86rem;font-family:inherit;font-weight:500;cursor:pointer;
-  transition:all .35s cubic-bezier(.34,1.56,.64,1);
-  display:flex;align-items:center;gap:9px;backdrop-filter:blur(10px);
-}
-.quick-btn:hover{
-  background:linear-gradient(135deg,rgba(66,133,244,.18),rgba(155,114,203,.18));
-  border-color:rgba(66,133,244,.6);
-  box-shadow:0 0 28px rgba(66,133,244,.5);
-  transform:translateY(-4px) scale(1.03);color:#fff;
-}
+.quick-btn{padding:12px 22px;border-radius:28px;background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);color:#e3e3e3;font-size:.86rem;font-family:inherit;font-weight:500;cursor:pointer;transition:all .35s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:9px}
+.quick-btn:hover{background:linear-gradient(135deg,rgba(66,133,244,.18),rgba(155,114,203,.18));border-color:rgba(66,133,244,.6);box-shadow:0 0 28px rgba(66,133,244,.5);transform:translateY(-4px) scale(1.03);color:#fff}
 .quick-btn svg{width:18px;height:18px}
-
-/* ================================================================
-   چت
-   ================================================================ */
-.chat-area{
-  flex:1;overflow-y:auto;padding:20px 16px 180px;
-  display:none;scroll-behavior:smooth;z-index:5;position:relative;
-}
+.chat-area{flex:1;overflow-y:auto;padding:20px 16px 180px;display:none;scroll-behavior:smooth;z-index:5;position:relative}
 .chat-area.active{display:block}
 .chat-area::-webkit-scrollbar{width:6px}
-.chat-area::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#4285f4,#9b72cb,#d96570);border-radius:6px}
-
+.chat-area::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#4285f4,#9b72cb);border-radius:6px}
 .message{display:flex;gap:12px;margin-bottom:24px;animation:msgIn .5s cubic-bezier(.34,1.56,.64,1);max-width:100%}
 @keyframes msgIn{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 .message.user{flex-direction:row-reverse}
-
-.message-avatar{
-  width:38px;height:38px;border-radius:50%;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;font-weight:800;position:relative;
-}
-.message-avatar.ai{
-  background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570);
-  background-size:200% 200%;color:#fff;
-  box-shadow:0 0 24px rgba(66,133,244,.7);
-  animation:gradShift 5s infinite;
-}
-.message-avatar.ai::after{
-  content:'';position:absolute;inset:-5px;border-radius:50%;
-  border:1.5px solid rgba(66,133,244,.5);
-  animation:rippleA 2.4s infinite;
-}
-@keyframes rippleA{0%{transform:scale(1);opacity:1}100%{transform:scale(1.4);opacity:0}}
-.message-avatar.user-av{
-  background:linear-gradient(135deg,#d96570,#f2a600);
-  color:#fff;box-shadow:0 0 24px rgba(217,101,112,.7);
-}
-
+.message-avatar{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;position:relative}
+.message-avatar.ai{background:linear-gradient(135deg,#4285f4,#9b72cb,#d96570);background-size:200% 200%;color:#fff;box-shadow:0 0 24px rgba(66,133,244,.7);animation:gradShift 5s infinite}
+.message-avatar.user-av{background:linear-gradient(135deg,#d96570,#f2a600);color:#fff;box-shadow:0 0 24px rgba(217,101,112,.7)}
 .message-content{flex:1;max-width:85%}
 .message.user .message-content{display:flex;flex-direction:column;align-items:flex-end}
-
-.message-bubble{
-  background:var(--bg-surface);backdrop-filter:blur(16px);
-  border-radius:22px;padding:15px 19px;
-  font-size:.94rem;line-height:1.85;color:var(--text-primary);
-  word-wrap:break-word;white-space:pre-wrap;
-  border:1px solid rgba(255,255,255,.07);
-  box-shadow:0 8px 28px rgba(0,0,0,.4);
-}
-.message.user .message-bubble{
-  background:linear-gradient(135deg,#0b57d0 0%,#1a73e8 50%,#4285f4 100%);
-  color:#fff;border-bottom-right-radius:6px;border:none;
-}
-.message.ai .message-bubble{
-  border-bottom-left-radius:6px;position:relative;overflow:hidden;
-}
-.message.ai .message-bubble::before{
-  content:'';position:absolute;top:14px;bottom:14px;right:0;width:3px;
-  background:linear-gradient(180deg,#4285f4,#9b72cb,#d96570,#f2a600);
-  border-radius:3px;box-shadow:0 0 12px rgba(155,114,203,.5);
-}
-.message-bubble img,.message-bubble video{
-  max-width:100%;border-radius:16px;margin-top:14px;display:block;
-  box-shadow:0 10px 40px rgba(0,0,0,.55);
-}
+.message-bubble{background:rgba(30,31,32,.9);border-radius:22px;padding:15px 19px;font-size:.94rem;line-height:1.85;color:#e3e3e3;word-wrap:break-word;white-space:pre-wrap;border:1px solid rgba(255,255,255,.07);box-shadow:0 8px 28px rgba(0,0,0,.4)}
+.message.user .message-bubble{background:linear-gradient(135deg,#0b57d0 0%,#1a73e8 50%,#4285f4 100%);color:#fff;border-bottom-right-radius:6px;border:none}
+.message.ai .message-bubble{border-bottom-left-radius:6px;position:relative;overflow:hidden}
+.message.ai .message-bubble::before{content:'';position:absolute;top:14px;bottom:14px;right:0;width:3px;background:linear-gradient(180deg,#4285f4,#9b72cb,#d96570,#f2a600);border-radius:3px}
+.message-bubble img,.message-bubble video{max-width:100%;border-radius:16px;margin-top:14px;display:block}
 .message-bubble audio{width:100%;margin-top:14px;border-radius:12px}
-.message-bubble pre{
-  background:#0a0a0a;padding:15px 17px;border-radius:13px;
-  margin:12px 0;overflow-x:auto;direction:ltr;text-align:left;
-  font-family:'SF Mono',Monaco,monospace;font-size:.82rem;line-height:1.65;
-  border:1px solid rgba(66,133,244,.3);
-}
-.message-bubble code{
-  background:rgba(66,133,244,.2);padding:3px 8px;border-radius:6px;
-  font-family:'SF Mono',Monaco,monospace;font-size:.85em;direction:ltr;
-  display:inline-block;color:#a8c7fa;border:1px solid rgba(66,133,244,.25);
-}
-.service-badge{
-  display:inline-flex;align-items:center;gap:6px;padding:4px 12px;
-  border-radius:12px;font-size:.72rem;font-weight:700;margin-bottom:8px;
-  background:linear-gradient(135deg,rgba(66,133,244,.2),rgba(155,114,203,.2));
-  border:1px solid rgba(66,133,244,.3);color:#a8c7fa;
-}
+.message-bubble pre{background:#0a0a0a;padding:15px 17px;border-radius:13px;margin:12px 0;overflow-x:auto;direction:ltr;text-align:left;font-family:monospace;font-size:.82rem;line-height:1.65;border:1px solid rgba(66,133,244,.3)}
+.message-bubble code{background:rgba(66,133,244,.2);padding:3px 8px;border-radius:6px;font-family:monospace;font-size:.85em;direction:ltr;display:inline-block;color:#a8c7fa}
+.service-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:12px;font-size:.72rem;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,rgba(66,133,244,.2),rgba(155,114,203,.2));border:1px solid rgba(66,133,244,.3);color:#a8c7fa}
 .status-list{margin-top:10px;padding:0;list-style:none}
-.status-item{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.8rem;color:var(--text-secondary)}
+.status-item{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.8rem;color:#9aa0a6}
 .status-item .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.status-item .dot.pending{background:#ffc107;box-shadow:0 0 8px #ffc107}
-.status-item .dot.success{background:var(--accent-green);box-shadow:0 0 8px var(--accent-green)}
-.status-item .dot.fail{background:var(--danger);box-shadow:0 0 8px var(--danger)}
-
+.status-item .dot.pending{background:#ffc107}
+.status-item .dot.success{background:#00d97e}
+.status-item .dot.fail{background:#ff6b6b}
 .message-actions{display:flex;gap:5px;margin-top:8px;padding:0 4px;opacity:0;transition:opacity .3s}
 .message:hover .message-actions{opacity:1}
-.action-btn{
-  width:34px;height:34px;border-radius:11px;border:none;
-  background:rgba(255,255,255,.05);color:#888;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .3s;border:1px solid rgba(255,255,255,.05);
-}
-.action-btn:hover{
-  background:rgba(66,133,244,.25);color:#a8c7fa;
-  box-shadow:0 0 18px rgba(66,133,244,.5);
-  transform:translateY(-2px) scale(1.08);
-  border-color:rgba(66,133,244,.5);
-}
-.action-btn.done{color:var(--accent-green);background:rgba(0,217,126,.15);border-color:rgba(0,217,126,.4)}
+.action-btn{width:34px;height:34px;border-radius:11px;border:none;background:rgba(255,255,255,.05);color:#888;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;border:1px solid rgba(255,255,255,.05)}
+.action-btn:hover{background:rgba(66,133,244,.25);color:#a8c7fa;transform:translateY(-2px) scale(1.08)}
+.action-btn.done{color:#00d97e;background:rgba(0,217,126,.15)}
 .action-btn svg{width:16px;height:16px}
-
 .typing-indicator{display:flex;gap:7px;padding:8px 0}
 .typing-dot{width:10px;height:10px;border-radius:50%;animation:typingBounce 1.4s infinite ease-in-out}
-.typing-dot:nth-child(1){background:linear-gradient(135deg,#4285f4,#a8c7fa);box-shadow:0 0 12px rgba(66,133,244,.8)}
-.typing-dot:nth-child(2){animation-delay:.15s;background:linear-gradient(135deg,#9b72cb,#d96570);box-shadow:0 0 12px rgba(155,114,203,.8)}
-.typing-dot:nth-child(3){animation-delay:.3s;background:linear-gradient(135deg,#f2a600,#00d9c0);box-shadow:0 0 12px rgba(242,166,0,.8)}
+.typing-dot:nth-child(1){background:#4285f4}
+.typing-dot:nth-child(2){animation-delay:.15s;background:#9b72cb}
+.typing-dot:nth-child(3){animation-delay:.3s;background:#f2a600}
 @keyframes typingBounce{0%,60%,100%{transform:translateY(0) scale(1);opacity:.5}30%{transform:translateY(-10px) scale(1.25);opacity:1}}
-
-/* ================================================================
-   نوار ورودی
-   ================================================================ */
-.input-bar-container{
-  position:fixed;bottom:0;left:0;right:0;
-  padding:14px 16px 24px;
-  background:linear-gradient(to top,rgba(14,37,69,.98) 0%,rgba(10,26,46,.9) 55%,transparent 100%);
-  z-index:50;
-}
-.input-bar{
-  display:flex;align-items:center;
-  background:rgba(30,31,32,.94);
-  backdrop-filter:blur(24px);
-  border-radius:32px;padding:9px 11px;gap:8px;
-  min-height:62px;
-  box-shadow:0 10px 50px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.06);
-  border:1px solid var(--border);
-  max-width:900px;margin:0 auto;transition:all .35s;
-}
-.input-bar:focus-within{
-  border-color:rgba(66,133,244,.65);
-  box-shadow:0 10px 50px rgba(0,0,0,.65),0 0 50px rgba(66,133,244,.45);
-  transform:translateY(-2px);
-}
-.icon-btn{
-  width:46px;height:46px;border-radius:50%;border:none;
-  background:transparent;color:var(--text-primary);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  transition:all .3s;font-family:inherit;
-}
-.icon-btn:hover{
-  background:rgba(66,133,244,.2);color:#a8c7fa;
-  transform:scale(1.12) rotate(5deg);
-  box-shadow:0 0 20px rgba(66,133,244,.4);
-}
+.input-bar-container{position:fixed;bottom:0;left:0;right:0;padding:14px 16px 24px;background:linear-gradient(to top,rgba(14,37,69,.98) 0%,rgba(10,26,46,.9) 55%,transparent 100%);z-index:50}
+.input-bar{display:flex;align-items:center;background:rgba(30,31,32,.94);border-radius:32px;padding:9px 11px;gap:8px;min-height:62px;box-shadow:0 10px 50px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);max-width:900px;margin:0 auto;transition:all .35s}
+.input-bar:focus-within{border-color:rgba(66,133,244,.65);box-shadow:0 10px 50px rgba(0,0,0,.65),0 0 50px rgba(66,133,244,.45)}
+.icon-btn{width:46px;height:46px;border-radius:50%;border:none;background:transparent;color:#e3e3e3;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-family:inherit}
+.icon-btn:hover{background:rgba(66,133,244,.2);color:#a8c7fa}
 .icon-btn svg{width:21px;height:21px}
-.chat-input{
-  flex:1;background:transparent;border:none;color:var(--text-primary);
-  font-size:.97rem;font-family:inherit;outline:none;
-  padding:10px 8px;min-width:0;direction:rtl;
-}
-.chat-input::placeholder{color:var(--text-placeholder)}
-.send-btn{
-  width:48px;height:48px;border-radius:50%;border:none;
-  background:#2b2d2f;color:#5f6368;cursor:not-allowed;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  transition:all .35s;font-family:inherit;
-}
-.send-btn.active{
-  background:linear-gradient(135deg,#4285f4,#1a73e8,#9b72cb,#d96570);
-  background-size:300% 300%;color:#fff;cursor:pointer;
-  box-shadow:0 8px 32px rgba(66,133,244,.7);
-  animation:sendPulse 2.5s infinite,gradShift 3s infinite;
-}
-@keyframes sendPulse{0%,100%{box-shadow:0 8px 32px rgba(66,133,244,.6)}50%{box-shadow:0 8px 40px rgba(155,114,203,.8)}}
+.chat-input{flex:1;background:transparent;border:none;color:#e3e3e3;font-size:.97rem;font-family:inherit;outline:none;padding:10px 8px;min-width:0;direction:rtl}
+.chat-input::placeholder{color:#8e918f}
+.send-btn{width:48px;height:48px;border-radius:50%;border:none;background:#2b2d2f;color:#5f6368;cursor:not-allowed;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .35s;font-family:inherit}
+.send-btn.active{background:linear-gradient(135deg,#4285f4,#1a73e8,#9b72cb,#d96570);color:#fff;cursor:pointer;box-shadow:0 8px 32px rgba(66,133,244,.7)}
 .send-btn svg{width:22px;height:22px}
-.icon-btn.recording{
-  background:linear-gradient(135deg,#ff4444,#cc0044);color:#fff;
-  animation:recPulse 1s infinite;
-}
-@keyframes recPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,68,68,.8)}50%{box-shadow:0 0 0 16px rgba(255,68,68,0)}}
-
-/* ============ پیش‌نمایش فایل ============ */
-.file-preview{
-  position:fixed;bottom:110px;right:16px;
-  background:var(--bg-surface-2);backdrop-filter:blur(16px);
-  border-radius:18px;padding:11px;display:none;align-items:center;gap:11px;
-  max-width:310px;z-index:60;border:1px solid rgba(66,133,244,.4);
-}
+.icon-btn.recording{background:linear-gradient(135deg,#ff4444,#cc0044);color:#fff}
+.file-preview{position:fixed;bottom:110px;right:16px;background:rgba(43,45,47,.97);border-radius:18px;padding:11px;display:none;align-items:center;gap:11px;max-width:310px;z-index:60;border:1px solid rgba(66,133,244,.4)}
 .file-preview.show{display:flex}
 .file-preview img{width:52px;height:52px;border-radius:12px;object-fit:cover}
-.file-info{flex:1;min-width:0;font-size:.79rem;color:var(--text-primary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
-.remove-file{
-  background:rgba(255,80,80,.15);border:none;color:var(--danger);cursor:pointer;
-  font-size:1.4rem;padding:0;line-height:1;width:32px;height:32px;
-  border-radius:10px;display:flex;align-items:center;justify-content:center;
-}
-
-/* ============ توست ============ */
-.toast{
-  position:fixed;bottom:130px;left:50%;
-  transform:translateX(-50%) translateY(20px);
-  background:var(--bg-surface-2);backdrop-filter:blur(16px);
-  color:var(--text-primary);padding:14px 28px;border-radius:28px;
-  font-size:.87rem;font-weight:500;opacity:0;transition:all .4s;
-  pointer-events:none;z-index:300;max-width:90%;text-align:center;
-  box-shadow:0 14px 50px rgba(0,0,0,.65);
-  border:1px solid rgba(66,133,244,.4);
-}
+.file-info{flex:1;min-width:0;font-size:.79rem;color:#e3e3e3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.remove-file{background:rgba(255,80,80,.15);border:none;color:#ff6b6b;cursor:pointer;font-size:1.4rem;width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.toast{position:fixed;bottom:130px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(43,45,47,.98);color:#e3e3e3;padding:14px 28px;border-radius:28px;font-size:.87rem;opacity:0;transition:all .4s;pointer-events:none;z-index:300;max-width:90%;text-align:center;border:1px solid rgba(66,133,244,.4)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* ============ ذرات ============ */
 .particles{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
 .particle{position:absolute;border-radius:50%;animation:float-up linear infinite}
 @keyframes float-up{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100px) scale(1.8);opacity:0}}
-
-/* ============ مودال تنظیمات ============ */
-.modal-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.85);
-  backdrop-filter:blur(12px);z-index:500;
-  display:none;align-items:center;justify-content:center;padding:20px;
-}
-.modal-overlay.show{display:flex}
-.modal-content{
-  background:linear-gradient(135deg,rgba(30,31,32,.98),rgba(20,22,25,.98));
-  border:1px solid rgba(66,133,244,.45);
-  border-radius:24px;padding:26px;
-  max-width:480px;width:100%;max-height:85vh;overflow-y:auto;
-  box-shadow:0 20px 60px rgba(0,0,0,.75);
-  animation:modalIn .35s cubic-bezier(.34,1.56,.64,1);
-}
-@keyframes modalIn{from{opacity:0;transform:scale(.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border)}
-.modal-title{font-size:1.1rem;font-weight:700;background:linear-gradient(90deg,#4285f4,#9b72cb,#d96570);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.modal-close{width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,.05);color:var(--text-primary);cursor:pointer;font-size:1.4rem}
-.modal-close:hover{background:rgba(255,80,80,.25);color:var(--danger)}
-
-.setting-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
-.setting-label{font-size:.9rem;font-weight:600}
-.setting-desc{font-size:.75rem;color:var(--text-secondary);margin-top:2px}
-.switch{width:48px;height:28px;border-radius:14px;background:#444;border:none;cursor:pointer;position:relative;transition:background .3s;flex-shrink:0}
-.switch::after{content:'';position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .3s}
-.switch.on{background:#1a73e8}
-.switch.on::after{transform:translateX(-20px)}
-
-/* ============ واکنش‌گرا ============ */
-@media(max-width:500px){
-  .header{padding:10px 12px}
-  .welcome-text{font-size:1.7rem}
-  .welcome-name{font-size:1.3rem}
-  .orbit-container{width:140px;height:140px}
-  .orbit-core{width:48px;height:48px}
-  .message-bubble{font-size:.88rem}
-  .message-content{max-width:88%}
-  .quick-actions{gap:8px;margin-top:32px}
-  .quick-btn{padding:10px 16px;font-size:.78rem}
-  .sidebar{width:290px;right:-290px}
-}
+@media(max-width:500px){.welcome-text{font-size:1.7rem}.welcome-name{font-size:1.3rem}.orbit-container{width:140px;height:140px}.orbit-core{width:48px;height:48px}.message-bubble{font-size:.88rem}.message-content{max-width:88%}.quick-btn{padding:10px 16px;font-size:.78rem}}
 </style>
 </head>
 <body>
@@ -598,39 +120,11 @@ body{
 <div class="rgb-border"></div>
 <div class="bg-canvas"></div>
 <div class="bg-stars"></div>
-<div class="light-ribbon"></div>
-<div class="light-ribbon"></div>
-<div class="light-ribbon"></div>
 <div class="particles" id="particles"></div>
 
-<!-- ================================================================
-     سایدبار
-     ================================================================ -->
-<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
-<aside class="sidebar" id="sidebar">
-  <div class="sidebar-header">
-    <div class="sidebar-logo">
-      <div class="sidebar-logo-icon">م</div>
-      <div class="sidebar-logo-text">محمد سام ملک زاده</div>
-    </div>
-    <button class="sidebar-close" onclick="closeSidebar()">×</button>
-  </div>
-  <div class="sidebar-section">تاریخچه گفتگوها</div>
-  <div class="sidebar-list" id="historyList"></div>
-  <div class="sidebar-footer">
-    <button class="sidebar-new-chat" onclick="newChatFromSidebar()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      <span>گفتگوی جدید</span>
-    </button>
-  </div>
-</aside>
-
-<!-- ================================================================
-     هدر
-     ================================================================ -->
 <header class="header">
   <div class="header-left">
-    <button class="menu-icon" onclick="toggleSidebar()" title="منو">
+    <button class="menu-icon" onclick="newChat()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="3" y1="6" x2="21" y2="6"/>
         <line x1="3" y1="12" x2="21" y2="12"/>
@@ -644,25 +138,16 @@ body{
   </div>
   <div class="header-title">مدیریت و مسئولیت: ملک زاده</div>
   <div class="header-right">
-    <button class="compose-icon" onclick="newChat()" title="گفتگوی جدید">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <button class="compose-icon" onclick="newChat()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 20h9"/>
         <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
-      </svg>
-    </button>
-    <button class="header-action" onclick="openSettings()" title="تنظیمات">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <circle cx="12" cy="12" r="3"/>
-        <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
       </svg>
     </button>
     <div class="avatar" onclick="showToast('مدیریت: ملک زاده')">م</div>
   </div>
 </header>
 
-<!-- ================================================================
-     محتوای وسط
-     ================================================================ -->
 <div class="center-content" id="centerContent">
   <div class="orbit-container">
     <div class="orbit o1"></div>
@@ -693,33 +178,24 @@ body{
   </div>
 </div>
 
-<!-- ================================================================
-     چت
-     ================================================================ -->
 <div class="chat-area" id="chatArea"></div>
 
-<!-- ================================================================
-     پیش‌نمایش فایل
-     ================================================================ -->
 <div class="file-preview" id="filePreview">
   <img id="filePreviewImg" src="" alt="">
   <div class="file-info" id="fileInfo"></div>
   <button class="remove-file" onclick="removeFile()">×</button>
 </div>
 
-<!-- ================================================================
-     نوار ورودی
-     ================================================================ -->
 <div class="input-bar-container">
   <div class="input-bar">
-    <button class="icon-btn" onclick="attachFile()" title="پیوست تصویر">
+    <button class="icon-btn" onclick="attachFile()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="12" y1="5" x2="12" y2="19"/>
         <line x1="5" y1="12" x2="19" y2="12"/>
       </svg>
     </button>
     <input type="text" class="chat-input" id="chatInput" placeholder="سوال خود را بنویسید..." autocomplete="off">
-    <button class="icon-btn" id="micBtn" onclick="toggleVoice()" title="میکروفون">
+    <button class="icon-btn" id="micBtn" onclick="toggleVoice()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/>
         <path d="M19 10v2a7 7 0 01-14 0v-2"/>
@@ -727,7 +203,7 @@ body{
         <line x1="8" y1="23" x2="16" y2="23"/>
       </svg>
     </button>
-    <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="ارسال">
+    <button class="send-btn" id="sendBtn" onclick="sendMessage()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="12" y1="19" x2="12" y2="5"/>
         <polyline points="5 12 12 5 19 12"/>
@@ -738,49 +214,17 @@ body{
 
 <div class="toast" id="toast"></div>
 
-<!-- ================================================================
-     مودال تنظیمات
-     ================================================================ -->
-<div class="modal-overlay" id="settingsModal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <div class="modal-title">⚙️ تنظیمات</div>
-      <button class="modal-close" onclick="closeSettings()">×</button>
-    </div>
-    <div class="setting-row">
-      <div><div class="setting-label">🎤 ضبط صوتی خودکار</div><div class="setting-desc">بعد از ضبط، خودکار ارسال شود</div></div>
-      <button class="switch on" id="sw1" onclick="toggleSetting('sw1')"></button>
-    </div>
-    <div class="setting-row">
-      <div><div class="setting-label">🔊 خواندن پاسخ</div><div class="setting-desc">پاسخ‌ها با صدا خوانده شوند</div></div>
-      <button class="switch" id="sw2" onclick="toggleSetting('sw2')"></button>
-    </div>
-    <div class="setting-row">
-      <div><div class="setting-label">💾 ذخیره خودکار</div><div class="setting-desc">چت‌ها در مرورگر ذخیره شوند</div></div>
-      <button class="switch on" id="sw3" onclick="toggleSetting('sw3')"></button>
-    </div>
-    <div class="setting-row">
-      <div><div class="setting-label">✨ ذرات شناور</div><div class="setting-desc">انیمیشن ذرات پس‌زمینه</div></div>
-      <button class="switch on" id="sw4" onclick="toggleSetting('sw4')"></button>
-    </div>
-  </div>
-</div>
-
 <script>
-/* ================================================================
-   محمد سام ملک زاده — JavaScript کامل
-   نسخه ۴.۰
-   ================================================================ */
+/* ============================================================
+   محمد سام ملک زاده — نسخه ۷.۰
+   افزایش سرویس‌های ویدیو، آهنگ و تحلیل عکس
+   ============================================================ */
 
-/* ============ متغیرهای global ============ */
 let isFirstMessage = true;
 let isGenerating = false;
 let isRecording = false;
 let recognition = null;
 let attachedFile = null;
-let conversations = [];
-let currentConvId = null;
-let settings = { sw1: true, sw2: false, sw3: true, sw4: true };
 const MAX_FILE_SIZE = 200 * 1024 * 1024;
 
 const chatArea = document.getElementById('chatArea');
@@ -790,16 +234,10 @@ const centerContent = document.getElementById('centerContent');
 const filePreview = document.getElementById('filePreview');
 const filePreviewImg = document.getElementById('filePreviewImg');
 const fileInfo = document.getElementById('fileInfo');
-const sidebar = document.getElementById('sidebar');
-const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-/* ================================================================
-   ذرات شناور
-   ================================================================ */
+/* ============ ذرات ============ */
 function createParticles(){
   const c = document.getElementById('particles');
-  if (!c) return;
-  c.innerHTML = '';
   const colors = ['#4285f4','#9b72cb','#d96570','#f2a600','#a8c7fa','#00d9c0','#ff95c4'];
   for (let i = 0; i < 45; i++){
     const p = document.createElement('div');
@@ -807,7 +245,7 @@ function createParticles(){
     const col = colors[Math.floor(Math.random()*colors.length)];
     p.style.left = Math.random()*100+'%';
     p.style.background = col;
-    p.style.boxShadow = `0 0 10px ${col}, 0 0 5px ${col}`;
+    p.style.boxShadow = '0 0 10px ' + col + ', 0 0 5px ' + col;
     p.style.animationDelay = Math.random()*12+'s';
     p.style.animationDuration = (8+Math.random()*8)+'s';
     const s = (1.5+Math.random()*3)+'px';
@@ -816,397 +254,448 @@ function createParticles(){
   }
 }
 
-/* ================================================================
-   توابع کمکی
-   ================================================================ */
-function showToast(msg, dur=2500){
+/* ============ توابع کمکی ============ */
+function showToast(msg, dur){
+  dur = dur || 2500;
   const t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');
-  clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove('show'), dur);
+  clearTimeout(t._t); t._t = setTimeout(function(){t.classList.remove('show')}, dur);
 }
 function escapeHtml(text){
   const d = document.createElement('div'); d.textContent = text; return d.innerHTML;
 }
-function scrollToBottom(){ setTimeout(()=>{ chatArea.scrollTop = chatArea.scrollHeight; }, 100); }
+function scrollToBottom(){ setTimeout(function(){ chatArea.scrollTop = chatArea.scrollHeight; }, 100); }
 function pickRandom(a){ return a[Math.floor(Math.random()*a.length)]; }
-function sleep(ms){ return new Promise(r=>setTimeout(r, ms)); }
+function sleep(ms){ return new Promise(function(r){ setTimeout(r, ms) }); }
 
-/* ================================================================
-   صف درخواست — جلوگیری از خطای ۴۲۹
-   ================================================================ */
-const RequestQueue = {
-  queue: [], processing: false, lastTime: 0, minInterval: 800,
-  async add(task){
-    return new Promise((resolve, reject)=>{
-      this.queue.push({ task, resolve, reject });
-      this.process();
-    });
-  },
-  async process(){
-    if (this.processing || this.queue.length === 0) return;
-    this.processing = true;
-    while (this.queue.length > 0){
-      const elapsed = Date.now() - this.lastTime;
-      if (elapsed < this.minInterval) await sleep(this.minInterval - elapsed);
-      const { task, resolve, reject } = this.queue.shift();
-      this.lastTime = Date.now();
-      try { resolve(await task()); } catch(e){ reject(e); }
-    }
-    this.processing = false;
-  }
-};
-
-/* ================================================================
-   کش هوشمند
-   ================================================================ */
-const Cache = {
-  key: 'ms_cache_v4', maxSize: 200, data: {},
-  init(){ try { const s = localStorage.getItem(this.key); if (s) this.data = JSON.parse(s); } catch(e){ this.data = {}; } },
-  get(p){
-    const k = btoa(unescape(encodeURIComponent(p))).substring(0,100);
-    const i = this.data[k];
-    if (i && Date.now() - i.time < 3600000) return i.response;
-    return null;
-  },
-  set(p, r){
-    const k = btoa(unescape(encodeURIComponent(p))).substring(0,100);
-    this.data[k] = { response: r, time: Date.now() };
-    const keys = Object.keys(this.data);
-    if (keys.length > this.maxSize){
-      const sorted = keys.sort((a,b)=> this.data[a].time - this.data[b].time);
-      for (let i = 0; i < keys.length - this.maxSize; i++) delete this.data[sorted[i]];
-    }
-    try { localStorage.setItem(this.key, JSON.stringify(this.data)); } catch(e){}
-  }
-};
-
-/* ================================================================
-   سایدبار و تنظیمات
-   ================================================================ */
-function toggleSidebar(){
-  sidebar.classList.toggle('open');
-  sidebarOverlay.classList.toggle('show');
+/* ============ پیش‌بارگذاری ============ */
+function preloadImage(url, t){
+  t = t || 20000;
+  return new Promise(function(res){
+    const i = new Image();
+    const to = setTimeout(function(){ i.src=''; res(false); }, t);
+    i.onload = function(){ clearTimeout(to); res(true); };
+    i.onerror = function(){ clearTimeout(to); res(false); };
+    i.src = url;
+  });
 }
-function closeSidebar(){
-  sidebar.classList.remove('open');
-  sidebarOverlay.classList.remove('show');
+function preloadVideo(url, t){
+  t = t || 45000;
+  return new Promise(function(res){
+    const v = document.createElement('video');
+    const to = setTimeout(function(){ v.src=''; res(false); }, t);
+    v.onloadeddata = function(){ clearTimeout(to); res(true); };
+    v.onerror = function(){ clearTimeout(to); res(false); };
+    v.src = url;
+  });
 }
-function newChatFromSidebar(){
-  closeSidebar();
-  setTimeout(newChat, 300);
-}
-function openSettings(){
-  document.getElementById('settingsModal').classList.add('show');
-}
-function closeSettings(){
-  document.getElementById('settingsModal').classList.remove('show');
-}
-function toggleSetting(id){
-  const el = document.getElementById(id);
-  el.classList.toggle('on');
-  settings[id] = el.classList.contains('on');
-  localStorage.setItem('ms_settings', JSON.stringify(settings));
-  if (id === 'sw4'){
-    document.getElementById('particles').style.display = settings.sw4 ? 'block' : 'none';
-  }
+function preloadAudio(url, t){
+  t = t || 20000;
+  return new Promise(function(res){
+    const a = document.createElement('audio');
+    const to = setTimeout(function(){ a.src=''; res(false); }, t);
+    a.oncanplaythrough = function(){ clearTimeout(to); res(true); };
+    a.onerror = function(){ clearTimeout(to); res(false); };
+    a.src = url;
+  });
 }
 
-/* ================================================================
-   تاریخچه چت
-   ================================================================ */
-function loadHistory(){
-  const saved = localStorage.getItem('ms_history');
-  if (saved) conversations = JSON.parse(saved);
-  renderHistory();
-}
-function saveHistory(){
-  if (!settings.sw3) return;
-  localStorage.setItem('ms_history', JSON.stringify(conversations.slice(0, 50)));
-}
-function renderHistory(){
-  const list = document.getElementById('historyList');
-  if (!list) return;
-  if (!conversations.length){
-    list.innerHTML = '<div style="padding:20px;text-align:center;color:#666;font-size:.85rem">هنوز گفتگویی شروع نکردی</div>';
-    return;
-  }
-  list.innerHTML = conversations.map(c => `
-    <div class="sidebar-item ${c.id === currentConvId ? 'active' : ''}" onclick="loadConversation('${c.id}')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      <span class="sidebar-item-text">${escapeHtml(c.title)}</span>
-      <button class="sidebar-item-delete" onclick="event.stopPropagation();deleteConversation('${c.id}')">×</button>
-    </div>
-  `).join('');
-}
-function createConversation(){
-  const conv = { id: 'c_' + Date.now(), title: 'گفتگوی جدید', messages: [], createdAt: Date.now() };
-  conversations.unshift(conv);
-  currentConvId = conv.id;
-  saveHistory();
-  renderHistory();
-  return conv;
-}
-function loadConversation(id){
-  const conv = conversations.find(c => c.id === id);
-  if (!conv) return;
-  currentConvId = id;
-  chatArea.innerHTML = '';
-  chatArea.classList.add('active');
-  centerContent.classList.add('hidden');
-  isFirstMessage = false;
-  conv.messages.forEach(m => addMessage(m.role, m.text, m.extra || {}, false));
-  renderHistory();
-  closeSidebar();
-  scrollToBottom();
-}
-function deleteConversation(id){
-  conversations = conversations.filter(c => c.id !== id);
-  if (currentConvId === id) newChat();
-  saveHistory();
-  renderHistory();
-  showToast('🗑️ حذف شد');
-}
-function updateConversationTitle(text){
-  const conv = conversations.find(c => c.id === currentConvId);
-  if (conv && conv.title === 'گفتگوی جدید'){
-    conv.title = text.substring(0, 40) + (text.length > 40 ? '...' : '');
-    saveHistory();
-    renderHistory();
-  }
-}
-function addToHistory(role, text, extra){
-  const conv = conversations.find(c => c.id === currentConvId);
-  if (conv){
-    conv.messages.push({ role, text, extra: extra || {}, time: Date.now() });
-    saveHistory();
-  }
-}
-
-/* ================================================================
-   🧠 DeepSeek — چت و کد
-   ================================================================ */
-async function fetchDeepSeek(prompt, timeoutMs=35000){
-  const cached = Cache.get(prompt);
-  if (cached) return cached;
-  for (let attempt = 0; attempt < 3; attempt++){
-    try{
-      const url = `https://text.pollinations.ai/${encodeURIComponent(prompt)}?model=deepseek&seed=${Date.now()}&nologo=true`;
-      const ctrl = new AbortController();
-      const to = setTimeout(()=>ctrl.abort(), timeoutMs);
-      const res = await fetch(url, { signal: ctrl.signal });
-      clearTimeout(to);
-      if (!res.ok) throw new Error('HTTP '+res.status);
-      const txt = (await res.text()).trim();
-      if (txt && txt.length > 1 && !/^\s*error/i.test(txt) && !/rate.?limit/i.test(txt)){
-        Cache.set(prompt, txt);
-        return txt;
-      }
-    }catch(e){}
-    await sleep(1500);
-  }
+/* ============ سرویس پایه Pollinations ============ */
+async function fetchPollinations(prompt, model){
+  try{
+    const url = 'https://text.pollinations.ai/' + encodeURIComponent(prompt) + '?model=' + model + '&seed=' + Date.now() + '&nologo=true';
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 30000);
+    const res = await fetch(url, { signal: ctrl.signal });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const txt = (await res.text()).trim();
+    if (txt && txt.length > 1 && !/^\s*error/i.test(txt) && !/rate.?limit/i.test(txt)) return txt;
+  }catch(e){}
   return null;
 }
 
 /* ================================================================
-   دسته‌بندی پیام
-   ================================================================ */
-const CAT = { TEXT:'text', IMAGE:'image', MUSIC:'music', CODE:'code', VISION:'vision', VIDEO:'video' };
-function detectCategory(text, file){
-  if (file && file.type === 'image') return CAT.VISION;
-  const t = (text||'').toLowerCase();
-  if (/(کد\s*بنویس|کد\s*بزن|برنامه\s*بنویس|اسکریپت\s*بنویس|تابع\s*بنویس|فانکشن|پایتون|جاوا\s*اسکریپت|javascript|python|\bhtml\b|\bcss\b|\bphp\b|\bsql\b|\bjava\b|write\s+code)/i.test(t)) return CAT.CODE;
-  if (/(فیلم\s*بساز|ویدیو\s*بساز|ویدیو\s*درست|فیلم\s*درست|کلیپ\s*بساز|انیمیشن\s*بساز|video|movie|clip|animation)/i.test(t)) return CAT.VIDEO;
-  if (/(آهنگ\s*بساز|موسیقی\s*بساز|ملودی\s*بساز|آهنگ\s*درست|بخون|make\s+(music|song|audio)|compose|sing)/i.test(t)) return CAT.MUSIC;
-  if (/(عکس\s*بساز|تصویر\s*بساز|نقاشی\s*بکش|طراحی\s*کن|عکس\s*بکش|draw|image|picture|paint)/i.test(t)) return CAT.IMAGE;
-  return CAT.TEXT;
-}
-
-/* ================================================================
-   💬 چت متنی
+   💬 چت متنی — ۸ سرویس
    ================================================================ */
 async function chatText(userText){
-  const sys = `تو «محمد سام» هستی — دستیار هوشمند فارسی، خودمونی و صمیمی.
-- مثل یه رفیق باهوش حرف بزن
-- فارسی محاوره‌ای روان
-- هر بار لحن متفاوت
-- ایموجی بجا
-- دقیق و کامل
+  const sys = 'تو محمد سام هستی — دستیار هوشمند فارسی، خودمونی و صمیمی.\n- مثل یه رفیق باهوش حرف بزن\n- فارسی محاوره‌ای روان\n- ایموجی بجا\n- دقیق و کامل\n\nسوال کاربر: ' + userText;
 
-سوال کاربر: ${userText}`;
-  const txt = await fetchDeepSeek(sys);
-  if (txt) return { text: txt };
-  return { text: '⚠️ سرور شلوغه. ۱۵ ثانیه صبر کن و دوباره بفرست.' };
+  const services = [
+    { name: 'DeepSeek', fn: function(){ return fetchPollinations(sys, 'deepseek'); } },
+    { name: 'OpenAI', fn: function(){ return fetchPollinations(sys, 'openai'); } },
+    { name: 'OpenAI Fast', fn: function(){ return fetchPollinations(sys, 'openai-fast'); } },
+    { name: 'Mistral', fn: function(){ return fetchPollinations(sys, 'mistral'); } },
+    { name: 'Llama', fn: function(){ return fetchPollinations(sys, 'llama'); } },
+    { name: 'Gemini', fn: function(){ return fetchPollinations(sys, 'gemini'); } },
+    { name: 'Qwen', fn: function(){ return fetchPollinations(sys, 'qwen-coder'); } },
+    { name: 'SearchGPT', fn: function(){ return fetchPollinations(sys, 'searchgpt'); } }
+  ];
+  const results = [];
+  const statuses = services.map(function(s){ return { name: s.name, status: 'pending' }; });
+  await Promise.all(services.map(async function(s, i){
+    try{
+      const r = await s.fn();
+      if (r){ statuses[i].status = 'success'; results.push({ text: r, service: s.name }); }
+      else statuses[i].status = 'fail';
+    }catch(e){ statuses[i].status = 'fail'; }
+  }));
+  if (results.length === 0) return { text: '⚠️ سرور شلوغه. ۱۵ ثانیه صبر کن.', statuses: statuses };
+  const chosen = pickRandom(results);
+  return { text: chosen.text, service: chosen.service, statuses: statuses };
 }
 
 /* ================================================================
-   💻 کدنویسی
+   💻 کدنویسی — ۸ سرویس
    ================================================================ */
 async function chatCode(userText){
-  const prompt = `تو یک برنامه‌نویس حرفه‌ای هستی. کد کامل و قابل اجرا بنویس و توضیح کوتاه بده.\n\nدرخواست: ${userText}`;
-  const txt = await fetchDeepSeek(prompt);
-  if (txt) return { text: txt };
-  return { text: '⚠️ سرور شلوغه. دوباره امتحان کن.' };
+  const prompt = 'تو یک برنامه‌نویس حرفه‌ای هستی. کد کامل و قابل اجرا بنویس و توضیح کوتاه بده.\n\nدرخواست: ' + userText;
+
+  const services = [
+    { name: 'DeepSeek', fn: function(){ return fetchPollinations(prompt, 'deepseek'); } },
+    { name: 'Qwen Coder', fn: function(){ return fetchPollinations(prompt, 'qwen-coder'); } },
+    { name: 'OpenAI', fn: function(){ return fetchPollinations(prompt, 'openai'); } },
+    { name: 'OpenAI Fast', fn: function(){ return fetchPollinations(prompt, 'openai-fast'); } },
+    { name: 'Mistral', fn: function(){ return fetchPollinations(prompt, 'mistral'); } },
+    { name: 'Llama', fn: function(){ return fetchPollinations(prompt, 'llama'); } },
+    { name: 'Gemini', fn: function(){ return fetchPollinations(prompt, 'gemini'); } },
+    { name: 'SearchGPT', fn: function(){ return fetchPollinations(prompt, 'searchgpt'); } }
+  ];
+  const results = [];
+  const statuses = services.map(function(s){ return { name: s.name, status: 'pending' }; });
+  await Promise.all(services.map(async function(s, i){
+    try{
+      const r = await s.fn();
+      if (r){ statuses[i].status = 'success'; results.push({ text: r, service: s.name }); }
+      else statuses[i].status = 'fail';
+    }catch(e){ statuses[i].status = 'fail'; }
+  }));
+  if (results.length === 0) return { text: '⚠️ سرور شلوغه.', statuses: statuses };
+  const chosen = pickRandom(results);
+  return { text: chosen.text, service: chosen.service, statuses: statuses };
 }
 
 /* ================================================================
-   🎬 تولید ویدیو — ۶ سرویس
+   🎨 تولید عکس — ۹ سرویس
    ================================================================ */
-async function tryPuterVideo(prompt){
-  const models = ['vidu/vidu-q3','google/veo-3.1','sora-2','kling/kling-2.1-master','wan-ai/wan2.7-t2v'];
-  for (const model of models){
-    try{
-      const v = await puter.ai.txt2vid(prompt, { model, seconds: 5 });
-      if (v && v.src) return { url: v.src, service: 'Puter.js', model };
-    }catch(e){ continue; }
-  }
-  return null;
-}
-async function tryPollinationsVideo(prompt){
-  for (const model of ['veo','seedance','wan','seedance-pro']){
+async function generateImage(userText){
+  let prompt = userText.replace(/(عکس|تصویر|نقاشی|بکش|طراحی|بساز|برام|درست\s*کن|یه|یک|از|of|draw|image|picture|generate|create|paint)/gi,' ').replace(/\s+/g,' ').trim();
+  if (prompt.length < 2) prompt = 'منظره زیبای سینمایی';
+
+  const models = ['flux', 'flux-pro', 'turbo', 'kontext', 'nanobanana', 'seedream', 'stable-diffusion', 'gptimage'];
+  const statuses = models.map(function(m){ return { name: m, status: 'pending' }; });
+  const results = [];
+  await Promise.all(models.map(async function(m, i){
     try{
       const seed = Math.floor(Math.random()*1e6);
-      const url = `https://gen.pollinations.ai/video/${encodeURIComponent(prompt)}?model=${model}&seed=${seed}&nologo=true`;
-      if (await preloadVideo(url, 60000)) return { url, service: 'Pollinations', model };
-    }catch(e){}
-  }
+      const url = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(prompt) + '?width=1024&height=1024&seed=' + seed + '&nologo=true&model=' + m + '&enhance=true';
+      if (await preloadImage(url, 45000)){
+        statuses[i].status = 'success';
+        results.push({ url: url, service: 'Pollinations', model: m });
+      } else statuses[i].status = 'fail';
+    }catch(e){ statuses[i].status = 'fail'; }
+  }));
+
+  // InferencePort Z-Image
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+    const res = await fetch('https://inferenceport.ai/v1/images/generations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ model: 'zimage', prompt: prompt })
+    });
+    clearTimeout(to);
+    if (res.ok){
+      const data = await res.json();
+      if (data.data && data.data[0] && data.data[0].b64_json){
+        const imgUrl = 'data:image/jpeg;base64,' + data.data[0].b64_json;
+        statuses.push({ name: 'InferencePort (Z-Image)', status: 'success' });
+        results.push({ url: imgUrl, service: 'InferencePort', model: 'Z-Image' });
+      }
+    }
+  }catch(e){}
+
+  return { results: results, statuses: statuses };
+}
+
+/* ================================================================
+   🎬 تولید ویدیو — ۱۲+ سرویس
+   ================================================================ */
+async function tryPollinationsVideo(prompt, model){
+  try{
+    const seed = Math.floor(Math.random()*1e6);
+    const url = 'https://gen.pollinations.ai/video/' + encodeURIComponent(prompt) + '?model=' + model + '&seed=' + seed + '&nologo=true';
+    if (await preloadVideo(url, 60000)) return { url: url, service: 'Pollinations', model: model };
+  }catch(e){}
+  return null;
+}
+async function tryAgnesVideo(prompt){
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 60000);
+    const res = await fetch('https://apihub.agnes-ai.cn/v1/videos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ model: 'agnes-video-2.5-flash', prompt: prompt, size: '720P' })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const videoId = data.id || data.video_id;
+    if (!videoId) return null;
+    // Poll for result
+    for (let i = 0; i < 20; i++){
+      await sleep(3000);
+      const pollRes = await fetch('https://apihub.agnes-ai.cn/agnesapi?video_id=' + videoId + '&model_name=agnes-video-2.5-flash');
+      if (pollRes.ok){
+        const pollData = await pollRes.json();
+        if (pollData.status === 'completed' && pollData.video_url){
+          return { url: pollData.video_url, service: 'Agnes AI', model: 'Agnes Video 2.5 Flash' };
+        }
+        if (pollData.status === 'failed') return null;
+      }
+    }
+  }catch(e){}
   return null;
 }
 async function generateVideo(userText){
   let prompt = userText.replace(/(فیلم|ویدیو|video|movie|بساز|برام|درست\s*کن|یه|یک|کلیپ|clip|انیمیشن|animation|make|generate|a)/gi,' ').replace(/\s+/g,' ').trim();
   if (prompt.length < 3) prompt = 'یک صحنه سینمایی زیبا';
-  const settled = await Promise.allSettled([tryPuterVideo(prompt), tryPollinationsVideo(prompt)]);
-  const results = settled.filter(r => r.status === 'fulfilled' && r.value).map(r => r.value);
-  if (results.length > 0) return results.map(r => ({ text: `🎬 ساخته شد با ${r.service}:`, type:'video', url: r.url, service: r.service, model: r.model }));
-  const seed = Math.floor(Math.random()*1e6);
-  const imgUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=576&seed=${seed}&nologo=true&model=flux`;
-  if (await preloadImage(imgUrl, 25000)) return [{ text: `🎬 ویدیو ساخته نشد، ولی این تصویر رو برات ساختم:`, type: 'image', url: imgUrl }];
-  return [{ text: '⚠️ ویدیو ساخته نشد.' }];
-}
 
-/* ================================================================
-   🎨 تولید عکس — ۱۲ سرویس
-   ================================================================ */
-async function tryFlux(prompt){
-  const seed = Math.floor(Math.random()*1e6);
-  const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${seed}&nologo=true&model=flux&enhance=true`;
-  if (await preloadImage(url, 40000)) return { url, service: 'Flux', model: 'Flux' };
-  return null;
-}
-async function tryFluxPro(prompt){
-  const seed = Math.floor(Math.random()*1e6);
-  const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${seed}&nologo=true&model=flux-pro`;
-  if (await preloadImage(url, 45000)) return { url, service: 'Flux Pro', model: 'Flux Pro' };
-  return null;
-}
-async function tryTurbo(prompt){
-  const seed = Math.floor(Math.random()*1e6);
-  const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${seed}&nologo=true&model=turbo`;
-  if (await preloadImage(url, 25000)) return { url, service: 'Turbo', model: 'Turbo' };
-  return null;
-}
-async function tryKontext(prompt){
-  const seed = Math.floor(Math.random()*1e6);
-  const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${seed}&nologo=true&model=kontext`;
-  if (await preloadImage(url, 40000)) return { url, service: 'Kontext', model: 'Kontext' };
-  return null;
-}
-async function tryNanobanana(prompt){
-  const seed = Math.floor(Math.random()*1e6);
-  const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${seed}&nologo=true&model=nanobanana`;
-  if (await preloadImage(url, 45000)) return { url, service: 'NanoBanana', model: 'NanoBanana' };
-  return null;
-}
-async function trySeedream(prompt){
-  const seed = Math.floor(Math.random()*1e6);
-  const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${seed}&nologo=true&model=seedream`;
-  if (await preloadImage(url, 45000)) return { url, service: 'Seedream', model: 'Seedream 4.0' };
-  return null;
-}
-async function generateImage(userText){
-  let prompt = userText.replace(/(عکس|تصویر|نقاشی|بکش|طراحی|بساز|برام|درست\s*کن|یه|یک|از|of|draw|image|picture|generate|create|paint)/gi,' ').replace(/\s+/g,' ').trim();
-  if (prompt.length < 2) prompt = 'منظره زیبای سینمایی';
-  const services = [
-    { name: 'Flux', fn: tryFlux },
-    { name: 'Flux Pro', fn: tryFluxPro },
-    { name: 'Turbo', fn: tryTurbo },
-    { name: 'Kontext', fn: tryKontext },
-    { name: 'NanoBanana', fn: tryNanobanana },
-    { name: 'Seedream', fn: trySeedream }
-  ];
-  const statuses = services.map(s => ({ name: s.name, status: 'pending' }));
+  const videoModels = ['veo', 'seedance', 'seedance-pro', 'wan', 'wan-fast', 'grok-video-pro', 'ltx-2', 'p-video', 'nova-reel'];
+  const statuses = videoModels.map(function(m){ return { name: 'Pollinations ' + m, status: 'pending' }; });
+  statuses.push({ name: 'Agnes AI Video', status: 'pending' });
   const results = [];
-  await Promise.all(services.map(async (s, i) => {
+
+  await Promise.all(videoModels.map(async function(m, i){
     try{
-      const r = await s.fn(prompt);
+      const r = await tryPollinationsVideo(prompt, m);
       if (r){ statuses[i].status = 'success'; results.push(r); }
       else statuses[i].status = 'fail';
     }catch(e){ statuses[i].status = 'fail'; }
   }));
-  return { results, statuses };
+
+  // Agnes AI Video
+  try{
+    const r = await tryAgnesVideo(prompt);
+    if (r){ statuses[videoModels.length].status = 'success'; results.push(r); }
+    else statuses[videoModels.length].status = 'fail';
+  }catch(e){ statuses[videoModels.length].status = 'fail'; }
+
+  if (results.length === 0){
+    const seed = Math.floor(Math.random()*1e6);
+    const imgUrl = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(prompt) + '?width=1024&height=576&seed=' + seed + '&nologo=true&model=flux';
+    if (await preloadImage(imgUrl, 25000)) return { results: [{ url: imgUrl, service: 'تصویر جایگزین', model: 'Flux', type: 'image' }], statuses: statuses };
+  }
+  return { results: results, statuses: statuses };
 }
 
 /* ================================================================
-   🎵 تولید آهنگ
+   🎵 تولید آهنگ — ۸ سرویس
    ================================================================ */
-async function tryPollinationsMusic(prompt){
-  const voices = ['alloy','nova','shimmer','echo','fable'];
-  for (const voice of voices){
-    try{
-      const lyricsPrompt = `یک متن آهنگ کوتاه فارسی (۲-۳ بند) درباره "${prompt}" بنویس. فقط متن آهنگ.`;
-      const lyricsUrl = `https://text.pollinations.ai/${encodeURIComponent(lyricsPrompt)}?model=openai&seed=${Date.now()}&nologo=true`;
-      const lyricsRes = await fetch(lyricsUrl);
-      if (!lyricsRes.ok) continue;
-      const lyrics = (await lyricsRes.text()).trim();
-      if (!lyrics || lyrics.length < 10) continue;
-      const audioUrl = `https://text.pollinations.ai/${encodeURIComponent(lyrics)}?model=openai-audio&voice=${voice}&format=mp3`;
-      const ok = await preloadAudio(audioUrl, 25000);
-      if (ok) return { url: audioUrl, service: 'Pollinations', model: 'OpenAI Audio', lyrics };
-    }catch(e){ continue; }
-  }
+async function tryPollinationsMusic(theme, voice){
+  try{
+    const lyricsPrompt = 'یک متن آهنگ کوتاه فارسی (۲-۳ بند) درباره ' + theme + ' بنویس. فقط متن آهنگ.';
+    const lyrics = await fetchPollinations(lyricsPrompt, 'openai');
+    if (!lyrics || lyrics.length < 10) return null;
+    const audioUrl = 'https://text.pollinations.ai/' + encodeURIComponent(lyrics) + '?model=openai-audio&voice=' + voice + '&format=mp3';
+    if (await preloadAudio(audioUrl, 25000)) return { url: audioUrl, service: 'Pollinations', model: 'OpenAI Audio ('+voice+')', lyrics: lyrics };
+  }catch(e){}
+  return null;
+}
+async function tryElevenLabsMusic(theme){
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+    const res = await fetch('https://gen.pollinations.ai/audio/' + encodeURIComponent(theme) + '?model=elevenlabs/eleven-v3', { signal: ctrl.signal });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const blob = await res.blob();
+    const audioUrl = URL.createObjectURL(blob);
+    if (await preloadAudio(audioUrl, 25000)) {
+      return { url: audioUrl, service: 'Pollinations', model: 'ElevenLabs Eleven v3', lyrics: '' };
+    }
+  }catch(e){}
+  return null;
+}
+async function tryACEMusic(theme){
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+    const res = await fetch('https://api.acemusic.ai/v1/music/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ prompt: theme, style: 'pop' })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const audioUrl = data.url || data.audio_url || (data.data && data.data[0] && data.data[0].url);
+    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
+      return { url: audioUrl, service: 'ACE Music', model: 'ACE-Step 1.5', lyrics: data.lyrics || '' };
+    }
+  }catch(e){}
+  return null;
+}
+async function tryHuggingFaceMusic(theme){
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 60000);
+    const res = await fetch('https://api-inference.huggingface.co/models/ACE-Step/ACE-Step-v1.5', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ inputs: theme, parameters: { duration: 30 } })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const blob = await res.blob();
+    const audioUrl = URL.createObjectURL(blob);
+    if (await preloadAudio(audioUrl, 25000)) {
+      return { url: audioUrl, service: 'Hugging Face', model: 'ACE-Step v1.5', lyrics: '' };
+    }
+  }catch(e){}
+  return null;
+}
+async function tryFreeMusicLab(theme){
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 40000);
+    const res = await fetch('https://freemusiclab.ai/api/generate?prompt=' + encodeURIComponent(theme), { signal: ctrl.signal });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const audioUrl = data.url || data.audio_url;
+    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
+      return { url: audioUrl, service: 'FreeMusicLab', model: 'Lyria', lyrics: '' };
+    }
+  }catch(e){}
+  return null;
+}
+async function tryFlowMusic(theme){
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+    const res = await fetch('https://flowmusic.ai/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ prompt: theme, royalty_free: true })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const audioUrl = data.url || data.audio_url;
+    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
+      return { url: audioUrl, service: 'Flow Music AI', model: 'Flow Music', lyrics: '' };
+    }
+  }catch(e){}
+  return null;
+}
+async function tryLatentScore(theme){
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+    const res = await fetch('https://api.latentscore.ai/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ prompt: theme, duration: 30 })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const audioUrl = data.url || data.audio_url;
+    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
+      return { url: audioUrl, service: 'LatentScore', model: 'LatentScore', lyrics: '' };
+    }
+  }catch(e){}
+  return null;
+}
+async function tryMubert(theme){
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+    const res = await fetch('https://api.mubert.com/v2/RecordTrack', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ text: theme, tags: 'pop,upbeat' })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const audioUrl = data.audio_url || data.url;
+    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
+      return { url: audioUrl, service: 'Mubert', model: 'Mubert', lyrics: '' };
+    }
+  }catch(e){}
+  return null;
+}
+async function tryBeatoven(theme){
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+    const res = await fetch('https://api.beatoven.ai/api/v1/tracks', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ prompt: theme, genre: 'pop' })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const audioUrl = data.audio_url || data.url;
+    if (audioUrl && await preloadAudio(audioUrl, 25000)) {
+      return { url: audioUrl, service: 'Beatoven.ai', model: 'Beatoven', lyrics: '' };
+    }
+  }catch(e){}
   return null;
 }
 async function generateMusic(userText){
   let theme = userText.replace(/(آهنگ|موسیقی|ملودی|بساز|برام|درست\s*کن|بخون|یه|یک|make|song|music|compose|sing|audio|about|درباره)/gi,' ').replace(/\s+/g,' ').trim();
   if (theme.length < 2) theme = 'یک ترانه شاد';
-  const statuses = [{ name: 'Pollinations', status: 'pending' }];
+  const voices = ['alloy','nova','shimmer','echo','fable'];
+  const services = [
+    { name: 'Pollinations OpenAI', fn: function(){ return tryPollinationsMusic(theme, pickRandom(voices)); } },
+    { name: 'Pollinations ElevenLabs', fn: function(){ return tryElevenLabsMusic(theme); } },
+    { name: 'ACE Music', fn: function(){ return tryACEMusic(theme); } },
+    { name: 'Hugging Face', fn: function(){ return tryHuggingFaceMusic(theme); } },
+    { name: 'FreeMusicLab', fn: function(){ return tryFreeMusicLab(theme); } },
+    { name: 'Flow Music AI', fn: function(){ return tryFlowMusic(theme); } },
+    { name: 'LatentScore', fn: function(){ return tryLatentScore(theme); } },
+    { name: 'Mubert', fn: function(){ return tryMubert(theme); } },
+    { name: 'Beatoven.ai', fn: function(){ return tryBeatoven(theme); } }
+  ];
+  const statuses = services.map(function(s){ return { name: s.name, status: 'pending' }; });
   const results = [];
-  try{
-    const r = await tryPollinationsMusic(theme);
-    if (r){ statuses[0].status = 'success'; results.push(r); }
-    else statuses[0].status = 'fail';
-  }catch(e){ statuses[0].status = 'fail'; }
-  return { results, statuses };
+  await Promise.all(services.map(async function(s, i){
+    try{
+      const r = await s.fn();
+      if (r){ statuses[i].status = 'success'; results.push(r); }
+      else statuses[i].status = 'fail';
+    }catch(e){ statuses[i].status = 'fail'; }
+  }));
+  return { results: results, statuses: statuses };
 }
 
 /* ================================================================
-   🖼️ تحلیل عکس
+   🖼️ تحلیل عکس — ۱۰+ سرویس
    ================================================================ */
-async function tryPuterGPT(dataUrl, prompt){
-  try{
-    const res = await puter.ai.chat(prompt, dataUrl, { model: "openai/gpt-5.4-nano" });
-    const text = typeof res === 'string' ? res : res?.message?.content || res?.text;
-    if (text && text.length > 5) return { text, service: 'Puter.js', model: 'GPT-5.4 Nano' };
-  }catch(e){}
-  return null;
-}
-async function tryPuterGemini(dataUrl, prompt){
-  try{
-    const res = await puter.ai.chat(prompt, dataUrl, { model: "google/gemini-3.8-flash" });
-    const text = typeof res === 'string' ? res : res?.message?.content || res?.text;
-    if (text && text.length > 5) return { text, service: 'Puter.js', model: 'Gemini 3.8 Flash' };
-  }catch(e){}
-  return null;
-}
-async function tryPollinationsVision(dataUrl, prompt){
+async function tryPollinationsVision(dataUrl, prompt, model){
   try{
     const ctrl = new AbortController();
-    const to = setTimeout(()=>ctrl.abort(), 45000);
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
     const res = await fetch('https://text.pollinations.ai/openai', {
       method:'POST',
       headers:{ 'Content-Type':'application/json' },
       signal: ctrl.signal,
       body: JSON.stringify({
-        model: 'openai',
+        model: model,
         messages:[{ role:'user', content:[
           { type:'text', text: prompt },
           { type:'image_url', image_url:{ url: dataUrl } }
@@ -1217,113 +706,188 @@ async function tryPollinationsVision(dataUrl, prompt){
     clearTimeout(to);
     if (res.ok){
       const data = await res.json();
-      const reply = data?.choices?.[0]?.message?.content;
-      if (reply && reply.trim().length > 1) return { text: reply.trim(), service: 'Pollinations', model: 'OpenAI Vision' };
+      const reply = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+      if (reply && reply.trim().length > 1) return { text: reply.trim(), service: 'Pollinations', model: model };
     }
+  }catch(e){}
+  return null;
+}
+async function tryThreeWsVision(dataUrl, prompt){
+  try{
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+    const res = await fetch('https://three.ws/api/vision', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ image: dataUrl, prompt: prompt })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const reply = data.text || data.description || data.result;
+    if (reply && reply.length > 1) return { text: reply, service: 'three.ws', model: 'NVIDIA NIM Vision' };
+  }catch(e){}
+  return null;
+}
+async function tryVLMRunVision(dataUrl, prompt){
+  try{
+    const base64 = dataUrl.split(',')[1];
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+    const res = await fetch('https://gateway.vlm.run/v1/openai/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({
+        model: 'qwen/qwen3.5-0.8b',
+        messages: [{
+          role: 'user',
+          content: [
+            { type: 'text', text: prompt },
+            { type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + base64 } }
+          ]
+        }],
+        max_tokens: 500
+      })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const reply = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+    if (reply && reply.trim().length > 1) return { text: reply.trim(), service: 'VLM Run Gateway', model: 'Qwen3.5 Vision' };
+  }catch(e){}
+  return null;
+}
+async function tryNemotronVision(dataUrl, prompt){
+  try{
+    const base64 = dataUrl.split(',')[1];
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 45000);
+    const res = await fetch('https://blockrun.ai/v1/vision/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ image: base64, prompt: prompt })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const reply = data.text || data.description;
+    if (reply && reply.length > 1) return { text: reply, service: 'BlockRun', model: 'Nemotron 3 Nano Omni' };
+  }catch(e){}
+  return null;
+}
+async function tryHardparseOCR(dataUrl){
+  try{
+    const base64 = dataUrl.split(',')[1];
+    const ctrl = new AbortController();
+    const to = setTimeout(function(){ ctrl.abort(); }, 30000);
+    const res = await fetch('https://hardparse.com/api/ocr', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      signal: ctrl.signal,
+      body: JSON.stringify({ image: base64 })
+    });
+    clearTimeout(to);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const text = data.text || data.markdown;
+    if (text && text.length > 1) return { text: 'متن استخراج‌شده:\n' + text, service: 'Hardparse OCR', model: 'OCR' };
   }catch(e){}
   return null;
 }
 async function analyzeImage(file, userText){
   const prompt = userText || 'این عکس رو توصیف کن.';
   const services = [
-    { name: 'Puter GPT-5.4', fn: () => tryPuterGPT(file.dataUrl, prompt) },
-    { name: 'Puter Gemini 3.8', fn: () => tryPuterGemini(file.dataUrl, prompt) },
-    { name: 'Pollinations Vision', fn: () => tryPollinationsVision(file.dataUrl, prompt) }
+    { name: 'OpenAI Vision', fn: function(){ return tryPollinationsVision(file.dataUrl, prompt, 'openai'); } },
+    { name: 'OpenAI Fast Vision', fn: function(){ return tryPollinationsVision(file.dataUrl, prompt, 'openai-fast'); } },
+    { name: 'Gemini Vision', fn: function(){ return tryPollinationsVision(file.dataUrl, prompt, 'gemini'); } },
+    { name: 'Mistral Vision', fn: function(){ return tryPollinationsVision(file.dataUrl, prompt, 'mistral'); } },
+    { name: 'three.ws Vision', fn: function(){ return tryThreeWsVision(file.dataUrl, prompt); } },
+    { name: 'VLM Run Gateway', fn: function(){ return tryVLMRunVision(file.dataUrl, prompt); } },
+    { name: 'BlockRun Nemotron', fn: function(){ return tryNemotronVision(file.dataUrl, prompt); } },
+    { name: 'Hardparse OCR', fn: function(){ return tryHardparseOCR(file.dataUrl); } }
   ];
-  const statuses = services.map(s => ({ name: s.name, status: 'pending' }));
+  const statuses = services.map(function(s){ return { name: s.name, status: 'pending' }; });
   const results = [];
-  await Promise.all(services.map(async (s, i) => {
+  await Promise.all(services.map(async function(s, i){
     try{
       const r = await s.fn();
       if (r){ statuses[i].status = 'success'; results.push(r); }
       else statuses[i].status = 'fail';
     }catch(e){ statuses[i].status = 'fail'; }
   }));
-  return { results, statuses };
+  return { results: results, statuses: statuses };
 }
 
 /* ================================================================
-   پیش‌بارگذاری
+   دسته‌بندی خودکار
    ================================================================ */
-function preloadImage(url, t=20000){
-  return new Promise(res=>{
-    const i = new Image();
-    const to = setTimeout(()=>{ i.src=''; res(false); }, t);
-    i.onload = ()=>{ clearTimeout(to); res(true); };
-    i.onerror = ()=>{ clearTimeout(to); res(false); };
-    i.src = url;
-  });
-}
-function preloadVideo(url, t=45000){
-  return new Promise(res=>{
-    const v = document.createElement('video');
-    const to = setTimeout(()=>{ v.src=''; res(false); }, t);
-    v.onloadeddata = ()=>{ clearTimeout(to); res(true); };
-    v.onerror = ()=>{ clearTimeout(to); res(false); };
-    v.src = url;
-  });
-}
-function preloadAudio(url, t=20000){
-  return new Promise(res=>{
-    const a = document.createElement('audio');
-    const to = setTimeout(()=>{ a.src=''; res(false); }, t);
-    a.oncanplaythrough = ()=>{ clearTimeout(to); res(true); };
-    a.onerror = ()=>{ clearTimeout(to); res(false); };
-    a.src = url;
-  });
+const CAT = { TEXT:'text', IMAGE:'image', MUSIC:'music', CODE:'code', VISION:'vision', VIDEO:'video' };
+function detectCategory(text, file){
+  if (file && file.type === 'image') return CAT.VISION;
+  const t = (text||'').toLowerCase();
+  if (/(کد\s*بنویس|کد\s*بزن|برنامه\s*بنویس|اسکریپت\s*بنویس|تابع\s*بنویس|فانکشن|پایتون|جاوا\s*اسکریپت|javascript|python|html|css|php|sql|java|write\s+code)/i.test(t)) return CAT.CODE;
+  if (/(فیلم\s*بساز|ویدیو\s*بساز|ویدیو\s*درست|فیلم\s*درست|کلیپ\s*بساز|انیمیشن\s*بساز|video|movie|clip|animation)/i.test(t)) return CAT.VIDEO;
+  if (/(آهنگ\s*بساز|موسیقی\s*بساز|ملودی\s*بساز|آهنگ\s*درست|بخون|make\s+(music|song|audio)|compose|sing)/i.test(t)) return CAT.MUSIC;
+  if (/(عکس\s*بساز|تصویر\s*بساز|نقاشی\s*بکش|طراحی\s*کن|عکس\s*بکش|draw|image|picture|paint)/i.test(t)) return CAT.IMAGE;
+  return CAT.TEXT;
 }
 
 /* ================================================================
    پیام‌ها
    ================================================================ */
-function addMessage(role, text, extra={}, save=true){
+function addMessage(role, text, extra){
+  extra = extra || {};
   const msg = document.createElement('div');
-  msg.className = `message ${role}`;
+  msg.className = 'message ' + role;
   const av = role === 'user' ? 'user-av' : 'ai';
   let content = escapeHtml(text);
   content = content.replace(/```(\w+)?\n?([\s\S]*?)```/g, '<pre>$2</pre>');
   content = content.replace(/`([^`]+)`/g, '<code>$1</code>');
   let media = '';
-  if (extra.type === 'image' && extra.url) media = `<img src="${extra.url}" alt="تصویر" loading="lazy">`;
-  else if (extra.type === 'audio' && extra.url) media = `<audio controls preload="metadata" src="${extra.url}"></audio>`;
-  else if (extra.type === 'video' && extra.url) media = `<video controls preload="metadata" src="${extra.url}" style="max-width:100%"></video>`;
+  if (extra.type === 'image' && extra.url) media = '<img src="' + extra.url + '" alt="تصویر" loading="lazy">';
+  else if (extra.type === 'audio' && extra.url) media = '<audio controls preload="metadata" src="' + extra.url + '"></audio>';
+  else if (extra.type === 'video' && extra.url) media = '<video controls preload="metadata" src="' + extra.url + '" style="max-width:100%"></video>';
   let badge = '';
-  if (extra.service) badge = `<div class="service-badge">🎬 ${extra.service}${extra.model ? ' — ' + extra.model : ''}</div>`;
+  if (extra.service) badge = '<div class="service-badge">🎬 ' + extra.service + (extra.model ? ' — ' + extra.model : '') + '</div>';
   let statusList = '';
   if (extra.statuses){
-    statusList = `<div class="status-list">${extra.statuses.map(s => {
-      const cls = s.status === 'success' ? 'success' : s.status === 'fail' ? 'fail' : 'pending';
-      const icon = s.status === 'success' ? '✅' : s.status === 'fail' ? '❌' : '⏳';
-      return `<div class="status-item"><span class="dot ${cls}"></span>${icon} ${s.name}</div>`;
-    }).join('')}</div>`;
+    statusList = '<div class="status-list">';
+    extra.statuses.forEach(function(s){
+      const cls = s.status === 'success' ? 'success' : (s.status === 'fail' ? 'fail' : 'pending');
+      const icon = s.status === 'success' ? '✅' : (s.status === 'fail' ? '❌' : '⏳');
+      statusList += '<div class="status-item"><span class="dot ' + cls + '"></span>' + icon + ' ' + s.name + '</div>';
+    });
+    statusList += '</div>';
   }
   let analysis = '';
-  if (extra.analysisText) analysis = `<div style="margin-top:10px;padding:12px;background:rgba(0,217,126,.08);border:1px solid rgba(0,217,126,.25);border-radius:12px;font-size:.88rem;line-height:1.8">${escapeHtml(extra.analysisText)}</div>`;
+  if (extra.analysisText) analysis = '<div style="margin-top:10px;padding:12px;background:rgba(0,217,126,.08);border:1px solid rgba(0,217,126,.25);border-radius:12px;font-size:.88rem;line-height:1.8">' + escapeHtml(extra.analysisText) + '</div>';
   const encoded = btoa(unescape(encodeURIComponent(text)));
-  const actions = role === 'ai' ? `
-    <div class="message-actions">
-      <button class="action-btn" onclick="copyMsg(this, '${encoded}')" title="کپی"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button>
-      <button class="action-btn" onclick="speakMsg('${encoded}')" title="خواندن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg></button>
-      <button class="action-btn" onclick="downloadMsg('${encoded}')" title="دانلود"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
-    </div>
-  ` : '';
-  msg.innerHTML = `<div class="message-avatar ${av}">م</div><div class="message-content"><div class="message-bubble">${badge}${content}${media}${analysis}${statusList}</div>${actions}</div>`;
+  const actions = role === 'ai' ? (
+    '<div class="message-actions">' +
+    '<button class="action-btn" onclick="copyMsg(this, \'' + encoded + '\')" title="کپی"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button>' +
+    '<button class="action-btn" onclick="speakMsg(\'' + encoded + '\')" title="خواندن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg></button>' +
+    '<button class="action-btn" onclick="downloadMsg(\'' + encoded + '\')" title="دانلود"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>' +
+    '</div>'
+  ) : '';
+  msg.innerHTML = '<div class="message-avatar ' + av + '">م</div><div class="message-content"><div class="message-bubble">' + badge + content + media + analysis + statusList + '</div>' + actions + '</div>';
   chatArea.appendChild(msg);
   scrollToBottom();
-  if (save) addToHistory(role, text, extra);
 }
 
 function addTyping(){
   const m = document.createElement('div');
-  m.className='message ai'; m.id='typingMsg';
-  m.innerHTML = `<div class="message-avatar ai">م</div><div class="message-content"><div class="message-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div></div>`;
+  m.className = 'message ai'; m.id = 'typingMsg';
+  m.innerHTML = '<div class="message-avatar ai">م</div><div class="message-content"><div class="message-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div></div>';
   chatArea.appendChild(m); scrollToBottom();
 }
 function removeTyping(){ const el = document.getElementById('typingMsg'); if (el) el.remove(); }
 
 function copyMsg(btn, encoded){
   const text = decodeURIComponent(escape(atob(encoded)));
-  navigator.clipboard.writeText(text).then(()=>{ btn.classList.add('done'); showToast('✅ کپی شد'); setTimeout(()=>btn.classList.remove('done'), 1500); });
+  navigator.clipboard.writeText(text).then(function(){ btn.classList.add('done'); showToast('✅ کپی شد'); setTimeout(function(){ btn.classList.remove('done'); }, 1500); });
 }
 function speakMsg(encoded){
   const text = decodeURIComponent(escape(atob(encoded)));
@@ -1347,13 +911,13 @@ function downloadMsg(encoded){
 function attachFile(){
   const input = document.createElement('input');
   input.type = 'file'; input.accept = 'image/*';
-  input.onchange = async (e)=>{
+  input.onchange = async function(e){
     const file = e.target.files[0];
     if (!file) return;
     if (file.size > MAX_FILE_SIZE){ showToast('❌ حداکثر ۲۰۰MB'); return; }
     try{
       const dataUrl = await readAsDataURL(file);
-      attachedFile = { type: 'image', dataUrl, name: file.name, size: file.size };
+      attachedFile = { type: 'image', dataUrl: dataUrl, name: file.name };
       showFilePreview();
       showToast('✅ عکس آماده است');
     }catch(err){ showToast('❌ خطا'); }
@@ -1361,7 +925,7 @@ function attachFile(){
   input.click();
 }
 function readAsDataURL(file){
-  return new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.onerror=rej; r.readAsDataURL(file); });
+  return new Promise(function(res, rej){ const r = new FileReader(); r.onload = function(){ res(r.result); }; r.onerror = rej; r.readAsDataURL(file); });
 }
 function showFilePreview(){
   if (!attachedFile) return;
@@ -1372,12 +936,9 @@ function showFilePreview(){
 function removeFile(){
   attachedFile = null;
   filePreview.classList.remove('show');
-  filePreviewImg.src='';
+  filePreviewImg.src = '';
 }
 
-/* ================================================================
-   ارسال پیام
-   ================================================================ */
 async function sendMessage(){
   if (isGenerating) return;
   const text = chatInput.value.trim();
@@ -1386,12 +947,9 @@ async function sendMessage(){
     centerContent.classList.add('hidden');
     chatArea.classList.add('active');
     isFirstMessage = false;
-    createConversation();
   }
-  if (!currentConvId) createConversation();
   const userMsg = text || '[عکس]';
   addMessage('user', userMsg, attachedFile ? { type: 'image', url: attachedFile.dataUrl } : {});
-  if (text) updateConversationTitle(text);
   const file = attachedFile;
   removeFile();
   chatInput.value = '';
@@ -1400,58 +958,55 @@ async function sendMessage(){
   const category = detectCategory(text, file);
   addTyping();
   try{
-    switch(category){
-      case CAT.IMAGE: {
-        const { results, statuses } = await generateImage(text);
-        removeTyping();
-        if (results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست عکس بسازه.', { statuses });
-        else {
-          addMessage('ai', `🎨 ${results.length} عکس از ${statuses.length} سرویس ساخته شد:`, { statuses });
-          for (const r of results) addMessage('ai', '🎨 عکس:', { type: 'image', url: r.url, service: r.service, model: r.model });
-        }
-        break;
+    if (category === CAT.IMAGE){
+      const r = await generateImage(text);
+      removeTyping();
+      if (r.results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست عکس بسازه.', { statuses: r.statuses });
+      else {
+        addMessage('ai', '🎨 ' + r.results.length + ' عکس از ' + r.statuses.length + ' سرویس ساخته شد:', { statuses: r.statuses });
+        r.results.forEach(function(x){ addMessage('ai', '🎨 عکس:', { type: 'image', url: x.url, service: x.service, model: x.model }); });
       }
-      case CAT.MUSIC: {
-        const { results, statuses } = await generateMusic(text);
-        removeTyping();
-        if (results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست آهنگ بسازه.', { statuses });
-        else {
-          addMessage('ai', `🎵 ${results.length} آهنگ ساخته شد:`, { statuses });
-          for (const r of results) addMessage('ai', '🎵 آهنگ:', { type: 'audio', url: r.url, service: r.service, model: r.model });
-        }
-        break;
+    }
+    else if (category === CAT.MUSIC){
+      const r = await generateMusic(text);
+      removeTyping();
+      if (r.results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست آهنگ بسازه.', { statuses: r.statuses });
+      else {
+        addMessage('ai', '🎵 ' + r.results.length + ' آهنگ ساخته شد:', { statuses: r.statuses });
+        r.results.forEach(function(x){ addMessage('ai', '🎵 آهنگ:', { type: 'audio', url: x.url, service: x.service, model: x.model }); });
       }
-      case CAT.VIDEO: {
-        const results = await generateVideo(text);
-        removeTyping();
-        for (const r of results) addMessage('ai', r.text, { type: r.type, url: r.url, service: r.service, model: r.model });
-        break;
+    }
+    else if (category === CAT.VIDEO){
+      const r = await generateVideo(text);
+      removeTyping();
+      if (r.results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست ویدیو بسازه.', { statuses: r.statuses });
+      else {
+        addMessage('ai', '🎬 ' + r.results.length + ' ویدیو ساخته شد:', { statuses: r.statuses });
+        r.results.forEach(function(x){ addMessage('ai', '🎬 ویدیو:', { type: x.type || 'video', url: x.url, service: x.service, model: x.model }); });
       }
-      case CAT.VISION: {
-        const { results, statuses } = await analyzeImage(file, text);
-        removeTyping();
-        if (results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست تحلیل کنه.', { statuses });
-        else {
-          addMessage('ai', `🖼️ ${results.length} تحلیل دریافت شد:`, { statuses });
-          for (const r of results) addMessage('ai', '🖼️ تحلیل:', { service: r.service, model: r.model, analysisText: r.text });
-        }
-        break;
+    }
+    else if (category === CAT.VISION){
+      const r = await analyzeImage(file, text);
+      removeTyping();
+      if (r.results.length === 0) addMessage('ai', '⚠️ هیچ سرویسی نتونست تحلیل کنه.', { statuses: r.statuses });
+      else {
+        addMessage('ai', '🖼️ ' + r.results.length + ' تحلیل دریافت شد:', { statuses: r.statuses });
+        r.results.forEach(function(x){ addMessage('ai', '🖼️ تحلیل:', { service: x.service, model: x.model, analysisText: x.text }); });
       }
-      case CAT.CODE: {
-        const r = await chatCode(text);
-        removeTyping();
-        addMessage('ai', r.text);
-        break;
-      }
-      default: {
-        const r = await chatText(text);
-        removeTyping();
-        addMessage('ai', r.text);
-      }
+    }
+    else if (category === CAT.CODE){
+      const r = await chatCode(text);
+      removeTyping();
+      addMessage('ai', r.text, { service: r.service, statuses: r.statuses });
+    }
+    else {
+      const r = await chatText(text);
+      removeTyping();
+      addMessage('ai', r.text, { service: r.service, statuses: r.statuses });
     }
   }catch(err){
     removeTyping();
-    addMessage('ai', `⚠️ خطا: ${err.message || 'دوباره امتحان کن'}`);
+    addMessage('ai', '⚠️ خطا: ' + (err.message || 'دوباره امتحان کن'));
   }
   isGenerating = false;
 }
@@ -1462,9 +1017,6 @@ function quickSend(text){
   sendMessage();
 }
 
-/* ================================================================
-   ورودی صوتی
-   ================================================================ */
 function toggleVoice(){
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR){ showToast('مرورگر پشتیبانی نمی‌کند.'); return; }
@@ -1472,32 +1024,25 @@ function toggleVoice(){
   if (isRecording && recognition){ recognition.stop(); return; }
   recognition = new SR();
   recognition.lang = 'fa-IR'; recognition.continuous = false; recognition.interimResults = false;
-  recognition.onstart = ()=>{ isRecording = true; micBtn.classList.add('recording'); showToast('🎤 ضبط...'); };
-  recognition.onend = ()=>{ isRecording = false; micBtn.classList.remove('recording'); };
-  recognition.onresult = (e)=>{ chatInput.value = e.results[0][0].transcript; sendBtn.classList.add('active'); if (settings.sw1) setTimeout(()=>sendMessage(), 400); };
-  recognition.onerror = ()=>{ isRecording = false; micBtn.classList.remove('recording'); };
+  recognition.onstart = function(){ isRecording = true; micBtn.classList.add('recording'); showToast('🎤 ضبط...'); };
+  recognition.onend = function(){ isRecording = false; micBtn.classList.remove('recording'); };
+  recognition.onresult = function(e){ chatInput.value = e.results[0][0].transcript; sendBtn.classList.add('active'); setTimeout(function(){ sendMessage(); }, 400); };
+  recognition.onerror = function(){ isRecording = false; micBtn.classList.remove('recording'); };
   try{ recognition.start(); }catch(e){}
 }
 
-/* ================================================================
-   گفتگوی جدید
-   ================================================================ */
 function newChat(){
   chatArea.innerHTML = '';
   chatArea.classList.remove('active');
   centerContent.classList.remove('hidden');
-  isFirstMessage = true; isGenerating = false;
-  currentConvId = null;
+  isFirstMessage = true;
+  isGenerating = false;
   removeFile();
   chatInput.value = '';
   sendBtn.classList.remove('active');
-  renderHistory();
   showToast('✨ گفتگوی جدید');
 }
 
-/* ================================================================
-   رویدادها
-   ================================================================ */
 chatInput.addEventListener('input', function(){
   sendBtn.classList.toggle('active', !!this.value.trim() || !!attachedFile);
 });
@@ -1507,32 +1052,11 @@ chatInput.addEventListener('keydown', function(e){
     if (this.value.trim() || attachedFile) sendMessage();
   }
 });
-document.addEventListener('keydown', (e)=>{
-  if (e.key === 'Escape'){ closeSidebar(); closeSettings(); }
-});
 
-/* ================================================================
-   راه‌اندازی
-   ================================================================ */
-window.addEventListener('DOMContentLoaded', ()=>{
-  const savedSettings = localStorage.getItem('ms_settings');
-  if (savedSettings){
-    settings = { ...settings, ...JSON.parse(savedSettings) };
-    Object.keys(settings).forEach(k => {
-      const el = document.getElementById(k);
-      if (el) el.classList.toggle('on', settings[k]);
-    });
-  }
+window.addEventListener('DOMContentLoaded', function(){
   createParticles();
-  Cache.init();
-  loadHistory();
   chatInput.focus();
-  console.log('%c✅ محمد سام ملک زاده آماده است','color:#4285f4;font-size:14px;font-weight:bold');
-  console.log('🧠 چت و کد: DeepSeek');
-  console.log('🎬 ویدیو: Puter + Pollinations');
-  console.log('🎵 آهنگ: Pollinations');
-  console.log('🎨 عکس: ۶ سرویس');
-  console.log('🖼️ تحلیل: ۳ سرویس');
+  console.log('%c✅ محمد سام ملک زاده — ۴۰+ سرویس','color:#4285f4;font-size:14px;font-weight:bold');
 });
 </script>
 </body>
